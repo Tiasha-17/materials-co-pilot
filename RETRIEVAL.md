@@ -38,7 +38,10 @@ from rag import search_papers
 papers = search_papers("HEA strength and ductility", k=4)
 ```
 
-Each result contains `arxiv_id`, `title`, `url`, `excerpt`, and `distance`.
+Each result contains `arxiv_id`, `title`, `arxiv_url`, `authors`, `published`,
+`excerpt`, and `distance`. The existing `url` field is retained as an alias for
+`arxiv_url`. Citation metadata comes from the stored corpus, including authors
+decoded from Chroma metadata.
 The excerpt is the complete abstract, not full paper text. Lower distance means
 a closer vector match; it is not a calibrated confidence or relevance score.
 Results are limited to the number of indexed papers. Invalid queries, missing
@@ -71,3 +74,19 @@ Validated with Voyage AI SDK 0.5.0, ChromaDB 1.5.9, and pytest 9.1.1:
   (arXiv 2103.05567), with cosine distance approximately 0.428.
 
 This is a live smoke check, not a comprehensive retrieval-quality evaluation.
+
+## Literature grounding in the copilot
+
+Literature answers use verified quotations rather than free-form scientific
+synthesis. Groq selects an arXiv ID and exact passage from a retrieved abstract;
+Python checks that the ID was retrieved and the passage occurs verbatim in that
+abstract. Python then builds the citation from the stored title, URL, ID, and date.
+Invalid passages, invented citation fields, and free-form responses are rejected
+with an evidence-limit message. The full abstract remains available in `excerpt`.
+This does not prove that a selected passage fully answers the question, but it
+prevents the answer from adding unverified scientific wording. The response
+explicitly limits its evidence to abstracts. After a literature tool response, the
+next model request disables further tools and asks for final evidence selection;
+this avoids repeated searches exhausting Groq’s token budget. Earlier material
+tool rounds and multiple calls in one response remain supported. For mixed questions, computed
+Materials Project values are shown separately, directly from the tool output.

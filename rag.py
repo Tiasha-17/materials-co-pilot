@@ -158,6 +158,9 @@ def search_papers(query: str, k: int = 4) -> list[dict]:
             "arxiv_id": arxiv_id,
             "title": metadata["title"],
             "url": metadata["url"],
+            "arxiv_url": metadata["url"],
+            "authors": json.loads(metadata["authors"]),
+            "published": metadata["published"],
             # The full abstract avoids cutting off the evidence mid-sentence.
             "excerpt": result["documents"][0][index],
             "distance": float(result["distances"][0][index]),

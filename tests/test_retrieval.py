@@ -66,7 +66,7 @@ def test_retrieval_ranking_shape_and_limit(corpus):
     assert len(results) == 1
     assert results[0]["title"] == "HEA yield strength"
     assert results[0]["distance"] == pytest.approx(0, abs=1e-6)
-    assert set(results[0]) == {"arxiv_id", "title", "url", "excerpt", "distance"}
+    assert set(results[0]) == {"arxiv_id", "title", "url", "arxiv_url", "authors", "published", "excerpt", "distance"}
     assert results[0]["excerpt"] == corpus[0][0]["abstract"]
     json.dumps(results, allow_nan=False)
     assert client.embed.call_args.kwargs["input_type"] == "query"
@@ -158,3 +158,16 @@ def test_rate_limit_retries_are_bounded(corpus, monkeypatch):
     assert client.embed.call_count == 4
     assert sleep.call_count == 3
     assert not rag.DB_PATH.exists()
+
+
+def test_citation_metadata_matches_corpus(corpus):
+    papers, _ = corpus
+    rag.index_papers()
+    source = {paper["arxiv_id"]: paper for paper in papers}
+    for result in rag.search_papers("strength"):
+        paper = source[result["arxiv_id"]]
+        for field in ("title", "arxiv_url", "arxiv_id", "authors", "published"):
+            assert result[field] == paper[field]
+        assert result["url"] == result["arxiv_url"]
+        assert result["excerpt"] == paper["abstract"]
+        json.dumps(result, allow_nan=False)
