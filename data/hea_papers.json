@@ -1,0 +1,795 @@
+[
+  {
+    "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+    "abstract": "With important application prospects, eutectic high entropy alloys have received extensive attention for their excellent strength and ductility in a large temperature range. The excellent casting characteristics of eutectic high entropy alloys make it possible to achieve well manufacturability of selective laser melting. For the first time, we have achieved crack-free eutectic high entropy alloy fabricated by selective laser melting, which has excellent mechanical properties in a wide temperature range of -196 degrees Celsius~760 degrees Celsius due to ultra-fine eutectic lamellar spacing of 150 ~ 200nm and lamellar colony of 2 ~ 6 μm. Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.",
+    "arxiv_url": "https://arxiv.org/abs/2107.03202v1",
+    "arxiv_id": "2107.03202",
+    "authors": [
+      "Fan Yang",
+      "Lilin Wang",
+      "Zhijun Wang",
+      "Qingfeng Wu",
+      "Kexuan Zhou",
+      "Weidong Huang",
+      "Xin Lin"
+    ],
+    "published": "2021-07-07",
+    "categories": [
+      "physics.app-ph",
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "The high temperature mechanical properties and the correlated microstructure/texture evolutions of a TWIP high entropy alloy",
+    "abstract": "The present work deals with the microstructure and texture evolutions of a TWIP high entropy alloy at various temperatures. Toward this end, the tensile tests were conducted at temperatures ranging from 298 to 873 K under the strain rate of 0.001s-1. The experimented material exhibited an extraordinary room temperature work hardening behavior, in respect of both the instantaneous strain hardening exponent and the work hardening rate values. This resulted in an acceptable ultimate tensile strength /ductility balance and was justified considering the high activity of twinning and planar slip. Such work hardening capacity deteriorated at higher temperatures due to increasing the dislocation annihilation rate and the stacking fault energy values that suppressed twin formation and dislocation accumulation. However, the decrease in amplitude and extent of the work hardening region was insignificant compared with other single-phase high entropy alloys. This was attributed to the high capacity of the alloy for dislocation storage at various deformation temperatures. The serrated flow was observed at 773 and 873 K due to the dynamic strain aging (DSA) mechanism. Interestingly, in this case, the DSA mechanism has a beneficial effect on overall ductility, which was attributed to the increase in the strain hardening exponent result in a delay of necking. Texture examination also reveals the formation of a double fiber texture due to the simultaneous contribution of twinning and octahedral slip.",
+    "arxiv_url": "https://arxiv.org/abs/2105.04597v1",
+    "arxiv_id": "2105.04597",
+    "authors": [
+      "A. Nabizada",
+      "A. Zarei-Hanzaki",
+      "H. R. Abedi",
+      "M. H. Barati",
+      "P. Asghari-Rad",
+      "H. S. Kim"
+    ],
+    "published": "2021-05-10",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Yield strength insensitivity in a dual-phase high entropy alloy after prolonged high temperature annealing",
+    "abstract": "Recent studies of FeMnCoCr-based high entropy alloys have demonstrated uncommon deformation behaviors such as transformation-induced plasticity, which were largely believed to be restricted to select families of steels. Coupled with the potential for entropy stabilization of high symmetry phases at high temperatures, this system represents a promising class of materials for structural applications in extreme environments. Yet, transformation-induced plasticity mechanisms are notably sensitive to microstructure parameters and the literature offers examples of deleterious decomposition of high entropy alloys under heat treatment, which raises concerns of resiliency in mechanical performance. Here, we evaluate the evolution of microstructure and mechanical properties of a FeMnCoCr high entropy alloy after prolonged heat treatment at high temperature. Microstructures are found to retain their characteristic austenite/martensite features, with parent face-centered cubic grains partitioned by hexagonal close-packed laths after heat treatment at 1200 C for up to 48 hours. Results of mechanical testing reveal an unusual insensitivity of this alloy to grain growth-induced weakening effects. Namely, the yield strengths of FeMnCoCr samples are observed to remain constant across all heat treatment conditions, despite a near four-fold increase in the grain size. Close examination of post-heat treatment microstructures reveals a dramatic decrease in the inter-lath spacing at longer durations, which segments parent austenite grains. This crystal partitioning counteracts conventional grain growth-induced weakening by introducing additional barriers for dislocation pile-up. These results offer new insights into the mechanical resiliency of this transformation-induced plasticity high entropy alloy under prolonged high temperature heat treatment.",
+    "arxiv_url": "https://arxiv.org/abs/2103.05567v2",
+    "arxiv_id": "2103.05567",
+    "authors": [
+      "Junaid Ahmed",
+      "Matthew Daly"
+    ],
+    "published": "2021-03-09",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+    "abstract": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+    "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+    "arxiv_id": "2409.20368",
+    "authors": [
+      "Szilvia Kalácska",
+      "Amit Sharma",
+      "Rajaprakash Ramachandramoorthy",
+      "Ádám Vida",
+      "Florian Tropper",
+      "Renato Pero",
+      "Damian Frey",
+      "Xavier Maeder",
+      "Johann Michler",
+      "Péter Dusán Ispánovity",
+      "Guillaume Kermouche"
+    ],
+    "published": "2024-09-30",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "From Data to Alloys Predicting and Screening High Entropy Alloys for High Hardness Using Machine Learning",
+    "abstract": "The growing need for structural materials with strength, mechanical stability, and durability in extreme environments is driving the development of high entropy alloys. These are materials with near equiatomic mixing of five or more principal elements, and such compositional complexity often leads to improvements in mechanical properties and high thermal stability, etc. Thus, high-entropy alloys have found their applications in domains like aerospace, biomedical, energy storage, catalysis, electronics, etc. However, the vast compositional design and experimental exploration of high-entropy alloys are both time consuming and expensive and require a large number of resources. Machine learning techniques have thus become essential for accelerating high entropy alloys discovery using data driven predictions of promising alloy combinations and their properties. Hence, this work employs a machine learning framework that predicts high entropy alloy hardness from elemental descriptors such as atomic radius, valence electron count, bond strength, etc. Machine learning regression models, like LightGBM, Gradient Boosting Regressor, and Transformer encoder, were trained on experimental data. Additionally, a language model was also fine tuned to predict hardness from elemental descriptor strings. The results indicate that LightGBM has better accuracy in predicting the hardness of high entropy alloys compared to other models used in this study. Further, a combinatorial technique was used to generate over 9 million virtual high entropy alloy candidates, and the trained machine learning models were used to predict their hardness. This study shows how machine learning-driven high throughput screening and language modelling approaches can accelerate the development of next generation high entropy alloys.",
+    "arxiv_url": "https://arxiv.org/abs/2509.13479v1",
+    "arxiv_id": "2509.13479",
+    "authors": [
+      "Rahul Bouri",
+      "Manikantan R. Nair",
+      "Tribeni Roy"
+    ],
+    "published": "2025-09-16",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.comp-ph"
+    ]
+  },
+  {
+    "title": "Incorporation of Si atoms into CrCoNiFe high-entropy alloy: a DFT study",
+    "abstract": "Density functional theory based computational study has been conducted in order to investigate the effect of substitution of Cr and Co components by Si on the structure, mechanical, electronic, and magnetic properties of the high entropy alloy CrCoNiFe. It is found that the presence of a moderate concentration of Si substitutes (up to 12.5 %) does not significantly reduce the structural and mechanical stability of CrCoNiFe while it may modify its electronic and magnetic properties. Based on that, Si is proposed as a cheap and functional material for partial substitution of Cr or Co in CrCoNiFe.",
+    "arxiv_url": "https://arxiv.org/abs/2103.07322v1",
+    "arxiv_id": "2103.07322",
+    "authors": [
+      "S. Assa Aravindh",
+      "Andrey A. Kistanov",
+      "Matti Alatalo",
+      "Jukka Kömi",
+      "Marko Huttula",
+      "Wei Cao"
+    ],
+    "published": "2021-03-12",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.comp-ph"
+    ]
+  },
+  {
+    "title": "Deformation Mechanisms in High Entropy Alloys: A Minireview of Short-Range Order Effects",
+    "abstract": "The complex atomic scale structure of high entropy alloys presents new opportunities to expand the deformation theories of mechanical metallurgy. In this regard, solute-defect interactions have emerged as critical piece in elucidating the operation of deformation mechanisms. While notable progress has been made in understanding solute-defect interactions for random solute arrangements, recent interest in high entropy alloys with short-range order adds a new layer of structural complexity for which a cohesive picture has yet to emerge. To this end, this minireview synthesizes the current understanding of short-range order effects on defect behavior through an examination of the key recent literature. This analysis centers on the nanoscale metallurgy of deformation mechanisms, with the order-induced changes to the relevant defect energy landscapes serving as a touchstone for discussion. The topics reviewed include dislocation-mediated strengthening, twinning and phase transformation-based mechanisms, and vacancy-mediated processes. This minireview concludes with remarks on current challenges and opportunities for future efforts.",
+    "arxiv_url": "https://arxiv.org/abs/2310.12078v1",
+    "arxiv_id": "2310.12078",
+    "authors": [
+      "Novin Rasooli",
+      "Wei Chen",
+      "Matthew Daly"
+    ],
+    "published": "2023-10-18",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Mechanical behavior of high-entropy alloys: A review",
+    "abstract": "High-entropy alloys (HEAs) are materials that consist of equimolar or near-equimolar multiple principal components but tend to form single phases, which is a new research topic in the field of metallurgy, have attracted extensive attention in the past decade. The HEAs families contain the face-centered-cubic (fcc), body-centered-cubic (bcc), and hexagonal-close-packed (hcp)-structured HEAs. On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs. Scientists have explored in this direction since the advent of HEAs. On the other hand, the pursuit of high strength and good plasticity is the critical research issue of materials. Hence, strengthening of HEAs is a crucial issue. Recently, many articles are focusing on the strengthening strategies of HEAs[1-14]. In this chapter, we reviewed the recent work on the room-temperature elastic properties and mechanical behavior of HEAs, including the mechanisms behind the plastic deformation of HEAs at both low and high temperatures. Furthermore, the present work examined the strengthening strategies of HEAs, e.g. strain hardening, grain-boundary strengthening, solid-solution strengthening, and particle strengthening. The fatigue, creep, and fracture properties were briefly introduced. Lastly, the future scientific issues and challenges of HEAs were discussed.",
+    "arxiv_url": "https://arxiv.org/abs/2102.09055v1",
+    "arxiv_id": "2102.09055",
+    "authors": [
+      "Yuanyuan Shang",
+      "Jamieson Brechtl",
+      "Claudio Psitidda",
+      "Peter K. Liaw"
+    ],
+    "published": "2021-02-17",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Structure and hardness of in situ synthesized nano-oxide strengthened CoCrFeNi high entropy alloy thin films",
+    "abstract": "In this study, we report on face-centered cubic structured CoCrFeNi high-entropy alloy thin films with finely dispersed nano-oxide particles which are formed by internal oxidation. Analytical scanning transmission electron microscopy imaging found that the particles are Cr2O3. The oxide particles contribute to the hardening of the film increasing its hardness by 14% compared to that of the film without precipitates, through the Orowan-type strengthening mechanism. Our novel approach paves the way to design medium- and high-entropy alloys with high strength by making use of oxide phases.",
+    "arxiv_url": "https://arxiv.org/abs/2102.11950v1",
+    "arxiv_id": "2102.11950",
+    "authors": [
+      "Subin Lee",
+      "Dominique Chatain",
+      "Christian H. Liebscher",
+      "Gerhard Dehm"
+    ],
+    "published": "2021-02-23",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Microstructure and elevated-temperature mechanical properties of refractory AlMo0.5NbTa0.5TiZr High Entropy Alloy fabricated by powder metallurgy",
+    "abstract": "New approaches for the design of alloy systems with multiprincipal elements is recently researched in refractory materials field. However, most research aimed at arc melting process with weakness of coarsening of grains and inhomogeneous microstructure of segregation of elements during the cooling. This study aims to design and fabricate high-entropy alloy with powder metallurgy. In this study, a refractory high entropy alloys with composition near AlMo0.5NbTa0.5TiZr were produced by powder metallurgy. The alloy consists of two body-centered cubic (BCC) phases. One phase was disordered BCC enriched with Mo, Nb and Ta and the other phase was ordered BCC enriched with Al and Zr. The AlMo0.5NbTa0.5TiZr alloy had a density of 7.46g/cm3 and Vickers microhardness of 678HV. Its compressive yield strength was 2466MPa at 298K and 964MPa at 1273K. The properties of the alloy and the beneficial effects from powder metallurgy on the microstructure and properties were outlined.",
+    "arxiv_url": "https://arxiv.org/abs/1801.00263v1",
+    "arxiv_id": "1801.00263",
+    "authors": [
+      "Yuqiao Li",
+      "Junho Lee",
+      "Byungchul Kang",
+      "Soon Hyung Hong"
+    ],
+    "published": "2017-12-31",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Accelerated Corrosion of High Entropy Alloys under Tensile Stress",
+    "abstract": "High entropy alloys are finding significant scientific interest due to their exotic microstructures and exceptional properties resulting thereof. These alloys have excellent corrosion resistance and may find broad range of applications from bio-implants, aerospace components and nuclear industry. A critical performance metric that determines the application worthiness of the alloys is the resilience of stressed structural members in a corrosive environment. This study reports the results from a novel experimental setup to quantify the corrosion rate under uniaxial tensile stress in a single phase fcc Al0.1CoCrFeNi high entropy alloy rods. Under a uniform uniaxial applied stress of 600 MPa, the corrosion current density was observed to increase by three orders of magnitude and ~150 mV drop in corrosion potential. The mechanism of accelerated corrosion is identified as surface passivation layer breakdown, pit initiation on un-passivated surface and rapid pit-propagation along the loading direction.",
+    "arxiv_url": "https://arxiv.org/abs/2106.03690v1",
+    "arxiv_id": "2106.03690",
+    "authors": [
+      "Aditya Ayyagari",
+      "Riyadh Salloom",
+      "Harpreet Singh Arora",
+      "Sundeep Mukherjee"
+    ],
+    "published": "2021-06-07",
+    "categories": [
+      "physics.app-ph",
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Phase transitions of eutectic high entropy alloy AlCoCrFeNi2.1 under shock compression",
+    "abstract": "High entropy alloys (HEAs) are a new class of metals that exhibit unique mechanical performance. Among HEAs, additively manufactured eutectic high entropy alloys (AM-EHEAs) have recently emerged as candidate materials for use in extreme conditions due to their simultaneous high strength and ductility. However, the deformation and structural evolution of AM-EHEAs under conditions of high pressure have not been well characterized, limiting their use in extreme applications. We present dynamic compression experiments and molecular dynamics simulations studying the structural evolution of AM-EHEA AlCoCrFeNi2.1 when compressed to pressures up to 400 GPa. Our in-situ X-ray diffraction measurements capture the appearance of fcc and bcc phases at different pressure conditions, with pure- and mixed-phase regions. Understanding the phase stability and structural evolution of the AM EHEA offers new insights to guide the development of high-performance complex materials for extreme conditions.",
+    "arxiv_url": "https://arxiv.org/abs/2507.13218v2",
+    "arxiv_id": "2507.13218",
+    "authors": [
+      "Sophie E. Parsons",
+      "Kento Katagiri",
+      "Hangman Chen",
+      "Anirudh Hari",
+      "Sara J. Irvine",
+      "Dorian Luccioni",
+      "Rayen Lin",
+      "Laura E. Madril",
+      "Tharun Reddy",
+      "William J. McKinney",
+      "Jie Ren",
+      "Wuxian Yang",
+      "Norimasa Ozaki",
+      "Alexis Amouretti",
+      "Ryosuke Kodama",
+      "Hirotaka Nakamura",
+      "Yusuke Nakanishi",
+      "Masato Ota",
+      "Yusuke Seto",
+      "Sota Takagi",
+      "Takuo Okuchi",
+      "Yuhei Umeda",
+      "Yuichi Inubushi",
+      "Kohei Miyanishi",
+      "Keiichi Sueda",
+      "Tadashi Togashi",
+      "Makina Yabashi",
+      "Toshinori Yabuuchi",
+      "Wanghui Li",
+      "Paul E. Specht",
+      "Penghui Cao",
+      "Wen Chen",
+      "Yogesh K. Vohra",
+      "Leora Dresselhaus-Marais"
+    ],
+    "published": "2025-07-17",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "The Serrated-Flow Behavior in High-Entropy Alloys",
+    "abstract": "This chapter presents a literature review of the serrated flow phenomenon in high-entropy alloys (HEAs). The serrated flow is important as it can result in permanent macroscopic and microstructural changes in HEAs. The literature reveals several important findings regarding the effect of strain rate and test temperature on the serrated flow. Furthermore, this chapter explores the relationship among the composition, microstructure, testing condition, and serration behavior. Towards the end of the chapter, a concise summary is presented for the temperature, strain rate, mechanical-testing type (compression/tension/nanoindentation), and serration type for HEAs. This chapter also provides an overview of the different types of analytical methods that have been successfully implemented to model and analyze the serration behavior in HEAs. Such techniques include the mean-field theory (MFT) formalism, complexity-analysis method, and multifractal technique. Finally, future research topics in this area are presented, such as the effects of twinning and irradiation on the serration behavior.",
+    "arxiv_url": "https://arxiv.org/abs/2103.14504v1",
+    "arxiv_id": "2103.14504",
+    "authors": [
+      "Jamieson Brechtl",
+      "Peter K. Liaw"
+    ],
+    "published": "2021-03-26",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Catalytic activity of Al-Cu-Fe-Ni-Cr high entropy alloy",
+    "abstract": "Magnesium hydride (MgH2) is a promising material for hydrogen storage because of its abundance and beneficial properties, such as high storage capacity and cost-effectiveness under mild conditions. Despite of these benefits, MgH2 unfavorable thermodynamics and kinetics make it difficult to use in real applications. In this work, the hydrogen storage properties of MgH2have been improved using Al-Cu-Fe-Ni-Cr high entropy alloy (HEA) based catalysts, which has been synthesized via mechanical alloying. The experimental findings show that the beginning desorption temperature of MgH2significantly lowered from 425°C to 180°C by adding 5 wt. % Al-Cu-Fe-Ni-Cr HEA in MgH2. Moreover, the catalyst shows enhanced kinetics, attaining 7.3 wt. % hydrogen absorption in 3 minutes at 320°C with 15 atm hydrogen pressure, and ~5 wt. % desorption in 6 minutes at 320°C. These results highlight, how much lower its desorption temperature is than those of other well-known catalysts. Over a span of 25 cycles, MgH2 catalyzed by Al-Cu-Fe-Ni-Cr HEA exhibits remarkable cyclic stability with negligible fluctuations (~ 0.05 wt. %).After a thorough characterization of the materials, a workable catalytic mechanism for HEA was proposed in light of the results.",
+    "arxiv_url": "https://arxiv.org/abs/2501.04516v1",
+    "arxiv_id": "2501.04516",
+    "authors": [
+      "Yogesh Kumar Yadav",
+      "Mohammad Abu Shaz",
+      "Thakur Prasad Yadav"
+    ],
+    "published": "2025-01-08",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Atomistic simulations of ductile failure in a b.c.c. high entropy alloy",
+    "abstract": "Ductile failure is studied in a bcc HfNbTaZr High Entropy Alloy (HEA) with a pre-existing void. Using molecular dynamics simulations of uniaxial tensile tests, we explore the effect of void radius on the elastic modulus and yield stress. The elastic modulus scales with porosity as in closed-cell foams. The critical stress for dislocation nucleation as a function of the void radius is very well described by a model designed after pure bcc metals, taking into account a larger core radius for the HEA. Twinning takes place as a complementary deformation mechanism, and some detwinning occurs at large strain. No solid-solid phase transitions are identified. The concurrent effects of element size mismatch and plasticity lead to significant lattice disorder. By comparing our HEA results to pure tantalum simulations, we show that the critical stress for dislocation nucleation and the resulting dislocation densities are much lower than for pure Ta, as expected from lower energy barriers due to chemical complexity",
+    "arxiv_url": "https://arxiv.org/abs/2208.00234v1",
+    "arxiv_id": "2208.00234",
+    "authors": [
+      "Franco Aquistapace",
+      "Nicolás Vazquez",
+      "Matías Chiarpotti",
+      "Orlando Deluigi",
+      "Carlos J. Ruestes",
+      "Eduardo M. Bringa"
+    ],
+    "published": "2022-07-30",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Interstitial Carbon in bcc HfNbTiVZr high entropy alloy from first principles",
+    "abstract": "The remarkable mechanical properties of high entropy alloys can be further improved by interstitial alloying. In this work we employ density functional theory calculations to study the solution energies of dilute carbon interstitial atoms in tetrahedral and octahedral sites in bcc HfNbTiVZr. Our results indicate that carbon interstitials in tetrahedral sites are unstable, and the preferred octahedral sites present a large spread in the energy of solution. The inclusion of carbon interstitials induces large structural relaxations with long-range effects. The effect of local chemical environment on the energy of solution is investigated by performing a local cluster expansion including studies of its correlation with the carbon atomic Voronoi volume. However, the spread in solution energetics can not be explained with a local environment analysis only pointing towards a complex, long-range influence of interstitial carbon in this alloy.",
+    "arxiv_url": "https://arxiv.org/abs/2010.01354v1",
+    "arxiv_id": "2010.01354",
+    "authors": [
+      "Luis Casillas-Trujillo",
+      "Ulf Jansson",
+      "Martin Sahlberg",
+      "Gustav Ek",
+      "Magnus M. Nygård",
+      "Magnus H. Sørby",
+      "Bjørn C. Hauback",
+      "Igor Abrikosov",
+      "Björn Alling"
+    ],
+    "published": "2020-10-03",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Ab-initio study of the structural, elastic and dislocation properties of body-centered cubic refractory HfNbTaTiZr high entropy alloy",
+    "abstract": "This study delves into bcc HfNbTaTiZr refractory high entropy alloys, focusing on the $\\frac{1}{2}\\langle111\\rangle$ screw dislocation core structures. While traditional observations in pure elements often revealed compact dislocation cores, our investigation reveals variability, including instances of compact, split, or degenerate cores. Building upon the current understanding of dislocation behavior, we propose that this observed variability may be intricately linked to the presence of chemical short-range order within the alloy. The unique composition of HfNbTaTiZr, between bcc and hcp elements, introduces a dynamic interplay influencing the dislocation core structure. In light of these findings, we discuss the implications for plasticity mechanisms in high entropy alloys. The presence of varied dislocation core structures suggests a complex interplay between local phases and short-range ordering, influencing the material's response to external stresses. This challenges the conventional understanding of dislocation-mediated plasticity and opens avenues for tailoring the mechanical properties of refractory alloys through the controlled manipulation of short-range order.",
+    "arxiv_url": "https://arxiv.org/abs/2405.02691v1",
+    "arxiv_id": "2405.02691",
+    "authors": [
+      "Asif Iqbal Bhatti",
+      "David Tingaud",
+      "M. Seydou",
+      "Sylvain Queyreau"
+    ],
+    "published": "2024-05-04",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Elastic properties of a Sc-Zr-Nb-Ta-Rh-Pd high-entropy alloy superconductor",
+    "abstract": "We report a comprehensive study on the elastic properties of a hexanary high-entropy alloy superconductor (ScZrNbTa)$_{0.685}$[RhPd]$_{0.315}$ at room and cryogenic temperatures, by Resonant Ultrasound Spectroscopy experiments. The derived elastic constants are bulk modulus $K=132.7$ GPa, Young's modulus $E=121.0$ GPa, shear modulus $G=44.9$ GPa, and Poisson's ratio $ν$=0.348 for room temperature. The Young's and shear moduli are $\\sim 10\\%$ larger than those in NbTi superconductor with similar $T_c$, while the ductility is comparable. Moreover, the mechanical performance is further enhanced at cryogenic temperature. Our work confirms the advantageous mechanical properties of high-entropy alloy superconductors and suggests the application prospects.",
+    "arxiv_url": "https://arxiv.org/abs/2204.07993v2",
+    "arxiv_id": "2204.07993",
+    "authors": [
+      "Yupeng Pan",
+      "Xiaobo He",
+      "Binjie Zhou",
+      "Denver Strong",
+      "Jian Zhang",
+      "Hai-Bin Yu",
+      "Yunfei Tan",
+      "Robert J. Cava",
+      "Yongkang Luo"
+    ],
+    "published": "2022-04-17",
+    "categories": [
+      "cond-mat.supr-con",
+      "cond-mat.dis-nn",
+      "cond-mat.mtrl-sci",
+      "cond-mat.other",
+      "cond-mat.str-el"
+    ]
+  },
+  {
+    "title": "Prediction of A2 to B2 Phase Transition in the High Entropy Alloy MoNbTaW",
+    "abstract": "In this paper we show that an effective Hamiltonian fit with first principles calculations predicts an order/disorder transition occurs in the high entropy alloy MoNbTaW. Using the Alloy Theoretic Automated Toolset, we find T=0K enthalpies of formation for all binaries containing Mo, Nb, Ta, and W, and in particular we find the stable structures for binaries at equiatomic concentrations are close in energy to the associated B2 structure, suggesting that at intermediate temperatures a B2 phase is stabilized in MoNbTaW. Our previously published hybrid Monte Carlo/molecular dynamics results for the MoNbTaW system are analyzed to identify certain preferred chemical bonding types. A mean field free energy model incorporating nearest neighbor bonds is derived, allowing us to predict the mechanism of the order/disorder transition. We find the temperature evolution of the system is driven by strong Mo-Ta bonding. Comparison of the free energy model and our hybrid Monte Carlo/molecular dynamics results suggest the existence of additional low-temperature phase transitions in the system likely ending with phase segregation into binary phases.",
+    "arxiv_url": "https://arxiv.org/abs/1306.5043v1",
+    "arxiv_id": "1306.5043",
+    "authors": [
+      "William Paul Huhn",
+      "Michael Widom"
+    ],
+    "published": "2013-06-21",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Superfunctional high-entropy alloys and ceramics by severe plastic deformation",
+    "abstract": "High-entropy alloys and ceramics containing at least five principal elements have recently received high attention for various mechanical and functional applications. The application of severe plastic deformation (SPD), particularly the high-pressure torsion (HPT) method, combined with the CALPHAD and first-principles calculations resulted in the development of numerous superfunctional high-entropy materials with superior properties compared to the normal functions of engineering materials. This article reviews the recent advances in the application of SPD to developing superfunctional high-entropy materials. These superfunctional properties include (i) ultrahigh hardness levels comparable to the hardness of ceramics in high-entropy alloys, (ii) high yield strength and good hydrogen embrittlement resistance in high-entropy alloys; (iii) high strength, low elastic modulus, and high biocompatibility in high-entropy alloys, (iv) fast and reversible hydrogen storage in high-entropy hydrides, (v) photovoltaic performance and photocurrent generation on high-entropy semiconductors, (vi) photocatalytic oxygen and hydrogen production from water splitting on high-entropy oxides and oxynitrides, and (vii) CO2 photoreduction on high-entropy ceramics. These findings introduce SPD as not only a processing tool to improve the properties of existing high-entropy materials but also as a synthesis tool to produce novel high-entropy materials with superior properties compared with conventional engineering materials.",
+    "arxiv_url": "https://arxiv.org/abs/2209.08291v3",
+    "arxiv_id": "2209.08291",
+    "authors": [
+      "Parisa Edalati",
+      "Masayoshi Fuji",
+      "Kaveh Edalati"
+    ],
+    "published": "2022-09-17",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Accelerated Design of Mechanically Hard Magnetically Soft High-entropy Alloys via Multi-objective Bayesian Optimization",
+    "abstract": "Designing high-entropy alloys (HEAs) that are both mechanically hard and possess soft magnetic properties is inherently challenging, as a trade-off is needed for mechanical and magnetic properties. In this study, we optimize HEA compositions using a multi-objective Bayesian optimization (MOBO) framework to achieve simultaneous optimal mechanical and magnetic properties. An ensemble surrogate model is constructed to enhance the accuracy of machine learning surrogate models, while an efficient sampling strategy combining Monte Carlo sampling and acquisition function is applied to explore the high-dimensional compositional space. The implemented MOBO strategy successfully identifies Pareto-optimal compositions with enhanced mechanical and magnetic properties. The ensemble model provides robust and reliable predictions, and the sampling approach reduces the likelihood of entrapment in local optima. Our findings highlight specific elemental combinations that meet the dual design objectives, offering guidance for the synthesis of next-generation HEAs.",
+    "arxiv_url": "https://arxiv.org/abs/2509.05702v2",
+    "arxiv_id": "2509.05702",
+    "authors": [
+      "Mian Dai",
+      "Yixuan Zhang",
+      "Weijia He",
+      "Chen Shen",
+      "Xiaoqing Li",
+      "Stephan Schönecker",
+      "Liuliu Han",
+      "Ruiwen Xie",
+      "Tianhang Zhou",
+      "Hongbin Zhang"
+    ],
+    "published": "2025-09-06",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Unraveling the role of disorder in the electronic structure of high entropy alloys",
+    "abstract": "Disorder in high entropy alloys, arising from the random distribution of multiple elements, plays a crucial role in their novel properties desirable for various advanced engineering applications. We investigate the role of compositional and structural disorder on the electronic structure of osmium-based superconducting high entropy alloys, (Ru/Re)$_{0.35}$Os$_{0.35}$Mo$_{0.10}$W$_{0.10}$Zr$_{0.10}$, using photoemission spectroscopy and density functional theory (DFT). Elemental and cumulative core level shifts are found to be commensurate with elemental electronegativities and valence electron counts (VEC), respectively. Valence band spectra together with DFT results indicate that the crystal structure plays an important role in deciding the electronic structure of these high entropy alloys. Through temperature dependent high-resolution spectra, we unveil strongly suppressed spectral density of states (SDOS) in the close vicinity of Fermi level. Energy and temperature dependence of the SDOS in accordance with Altshuler-Aronov theory confirms localization of charge carriers in the presence of strong intrinsic disorder. Computed electron-phonon coupling strength and superconducting transition temperature aligning reasonably well with experiments further shed light on phonon-mediated pairing mechanism and role of disorder in these systems. Our results provide a way forward to the understanding of superconducting high entropy alloys through strategic control of disorder, VEC and crystal structure.",
+    "arxiv_url": "https://arxiv.org/abs/2509.22809v1",
+    "arxiv_id": "2509.22809",
+    "authors": [
+      "Neeraj Bhatt",
+      "Deepali Sharma",
+      "Asif Ali",
+      "Kapil Motla",
+      "Sonika Jangid",
+      "Ravi Prakash Singh",
+      "Ravi Shankar Singh"
+    ],
+    "published": "2025-09-26",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "cond-mat.dis-nn",
+      "cond-mat.supr-con"
+    ]
+  },
+  {
+    "title": "AB5 type multicomponent TiVCoNiMn2 high-entropy alloy",
+    "abstract": "Recent theoretical and practical research has focused on multi-component High Entropy Alloys (HEAs), which have superior mechanical and functional properties than standard alloys based on a single major element, thereby establishing a new field. A multi-component HEA contains five or more primary elements at concentrations ranging from 5 to 35 atomic percent. We examined the microstructure and mechanical properties of TiVCoNiMn2 HEA. The mixing enthalpy and other thermodynamic parameters were determined using Meidma's model. TiVCoNiMn2 exhibits a mixing enthalpy of -15.6 kJ/mol and an atomic radius mismatch of approximately 10.03%. HEA is derived from both hydride and non-hydride-producing elements. This could be a useful hydrogen storage material. The hydrogen absorption/desorption capabilities of these HEAs are promising.",
+    "arxiv_url": "https://arxiv.org/abs/2403.16241v1",
+    "arxiv_id": "2403.16241",
+    "authors": [
+      "Abhishek Kumar",
+      "M. A. Shaz",
+      "N. K. Mukhopadhyay",
+      "Thakur Prasad Yadav"
+    ],
+    "published": "2024-03-24",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "ScaleLat: A chemical structure matching algorithm for mapping atomic structure of multi-phase system and high entropy alloys",
+    "abstract": "ScaleLat (Scale Lattice) is a computer program written in C for performing the atomic structure analysis of multi-phase system or high entropy alloys (HEAs). The program implements an atomic cluster extraction algorithm to obtain all independent and symmetry-reduced characteristic chemical structures for the complex atomic configurations which are usually obtained from molecular dynamics or kinetic Monte-Carlo simulations for supercell containing more than 104 atoms. ScaleLat employes an efficient and unique chemical structure matching algorithm to map all extracted atomic clusters from a large supercell (>10^4 atoms) to a representative small one (~ 10^3 or less), providing the possibility to directly use the highly accurate quantum mechanical methods to study the electronic, magnetic, and mechanical properties of multi-component alloys with complex microstructures. We demonstrate the capability of ScaleLat code by conducting both the atomic structure analysis and chemical structure matching procedure for Fe-12.8 at.% Cr binary alloy and equiatomic CrFeCoNiCu high entropy alloy, and by successfully obtaining the representatively supercells containing 10^2~10^3 atoms of the two alloys. Overall, ScaleLat program provides a universal platform to efficiently project all essential chemical structures of large complex atomic structures to a relatively easy-handling small supercell for quantum mechanical calculations of various user interested properties.",
+    "arxiv_url": "https://arxiv.org/abs/2310.04754v1",
+    "arxiv_id": "2310.04754",
+    "authors": [
+      "Nan Li",
+      "Junming Guo",
+      "Sateng Li",
+      "Haoliang Liu",
+      "Qianwu Li",
+      "Fangjie Shi",
+      "Yefei Li",
+      "Bing Xiao"
+    ],
+    "published": "2023-10-07",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.comp-ph"
+    ]
+  },
+  {
+    "title": "Microstructure and mechanical properties of mechanically-alloyed CoCrFeNi high-entropy alloys using low ball-to-powder ratio",
+    "abstract": "High-entropy alloys are extensively studied due to their very promising properties. However manufacturing methods currently used to prepare HEAs are complicated, costly, and likely non-industrially scalable processes. This limits their evolution and poses questions regarding the material's applicability in the future. Considering the abovementioned point, we developed a novel methodology for efficient HEA production using a low ball-to-powder ratio (BPR). Using different milling times, we manufactured four HEA powder precursors using a BPR of 5:1, which were later sintered via the Spark Plasma Sintering technique and heat treated. Microstructural characterization was performed by optical microscopy, Scanning Electron Microscopy equipped with EDS and EBSD detectors, and X-ray diffraction. Mechanical properties were measured using nano and microhardness techniques. In this work, we follow the structural evolution of the material and connect it with the strengthening effect as a function of milling time. Furthermore, we discuss the impact of different sintering and annealing conditions, proving that HEAs characterized by high mechanical properties may be manufactured using low BPR.",
+    "arxiv_url": "https://arxiv.org/abs/2304.02888v1",
+    "arxiv_id": "2304.02888",
+    "authors": [
+      "A. Olejarz",
+      "W. Y. Huo",
+      "M. Zielinski",
+      "R. Diduszko",
+      "E. Wyszkowska",
+      "A. Kosinska",
+      "D. Kalita",
+      "I. Jozwik",
+      "M. Chmielewski",
+      "F. Fang",
+      "L. Kurpaska"
+    ],
+    "published": "2023-04-06",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Prediction of mechanical properties of non-equiatomic high-entropy alloy by atomistic simulation and machine learning",
+    "abstract": "High-entropy alloys (HEAs) with multiple constituent elements have been extensively studied in the past 20 years due to their promising engineering application. Previous experimental and computational studies of HEAs focused mainly on equiatomic or near equiatomic HEAs. However, there is probably far more treasure in those non-equiatomic HEAs with carefully designed composition. In this study, molecular dynamics (MD) simulation combined with machine learning (ML) methods were used to predict the mechanical properties of non-equiatomic CuFeNiCrCo HEAs. A database was established based on a tensile test of 900 HEA single-crystal samples by MD simulation. We investigated and compared eight ML models for the learning tasks, ranging from shallow models to deep models. It was found that the kernel-based extreme learning machine (KELM) model outperformed others for the prediction of yield stress and Young's modulus. The accuracy of the KELM model was further verified by the large-sized polycrystal HEA samples.",
+    "arxiv_url": "https://arxiv.org/abs/2004.04439v1",
+    "arxiv_id": "2004.04439",
+    "authors": [
+      "Liang Zhang",
+      "Kun Qian",
+      "Björn W. Schuller",
+      "Cheng Lu",
+      "Yasushi Shibuta",
+      "Xiaoxu Huang"
+    ],
+    "published": "2020-04-09",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.comp-ph"
+    ]
+  },
+  {
+    "title": "Electronic-Structure Correlations Governing Superconductivity in Nb-Based High-Entropy Alloys",
+    "abstract": "Superconducting high-entropy alloys have recently emerged as a new platform for exploring superconductivity in highly disordered metallic systems and may offer advantages for applications requiring mechanical robustness and tolerance to extreme environments. Yet the mechanisms that govern their superconductivity, particularly the roles of lattice distortion and complex local order, both inherent to high-entropy alloys, remain unclear. The conventional valence-electron-concentration rule fails to reliably predict superconducting behavior, motivating a correlation analysis that links performance to electronic structure and lattice disorder. Here, we study a systematic series of niobium-based body-centered-cubic high-entropy alloys, from binary to quinary compositions, designed to investigate the electronic and structural effects and identify the dominant factors controlling superconductivity. Our experimental results reveal that the superconducting critical properties evolve non-monotonically with alloy complexity. Interestingly, alloys with greater lattice distortion can still achieve higher critical temperature and upper critical field. These observations are corroborated by first-principles and Eliashberg analyses, which identify the position of the niobium d-band relative to the Fermi level as the primary driver of electron-phonon coupling, critical temperature, and upper critical field, with lattice distortion serving as a secondary modifier that generally weakens coupling. We consolidate these findings into a detailed correlation map linking superconducting properties to electronic-structure fingerprints and vibrational signatures, establishing a mechanism-informed design strategy for superconducting high-entropy alloys with enhanced critical temperature and field.",
+    "arxiv_url": "https://arxiv.org/abs/2604.01446v1",
+    "arxiv_id": "2604.01446",
+    "authors": [
+      "Md Sabbir Hossen Bijoy",
+      "Vladislav Korostelev",
+      "Deva Prasaad Neelakandan",
+      "Harshil Goyal",
+      "Steven E. Porterfield",
+      "Youming Xu",
+      "Shuchen Li",
+      "Xi Chen",
+      "Mark Adams",
+      "Barton C. Prorok",
+      "Konstantin Klyukin",
+      "Chanho Lee",
+      "Fariborz Kargar"
+    ],
+    "published": "2026-04-01",
+    "categories": [
+      "cond-mat.supr-con",
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "High Entropy Alloy under Shock Compression: Optical-Pump X-Ray-Probe",
+    "abstract": "High entropy alloys (HEAs) are multi-principal-element alloys designed for tailorable mechanical performance and have been attracting significant engineering interest, yet their fundamental behaviour under extreme dynamic conditions, such as shock loading, remains unexplored. Here, we report laser-shock experiments on two different types of 1-micrometers-thick HEA microfilms, CuPdAgPtAu and CrFeCoNiCuMo, on 25-micrometers-thick black-Kapton ablator driven by a high intensity laser pulse (532 nm, 5 ns, 16 J, 0.5-mm diameter focal spot) and probed by an X-ray free electron laser (XFEL) pulse (12 keV, 7 fs). Time-resolved X-ray diffraction (XRD) shows the formation of a transient phase with a lattice compression up to 5.1% of the CuPdAgPtAu HEA along the (111) plane; this transient compressed phase existed for 0.3 ns. The impedance matching Hugoniot analysis estimated a shock pressure of 55 +/- 6 GPa in the HEA film, while Au- and Fe-based equations of state (EoS) modelling predict 80 GPa (0.8 MBar) at the free HEA surface. The free HEA surface reached maximum velocities of ~ 5 km/s as recorded from in situ monitoring with the velocity interferometry system for any reflector (VISAR) imaging. These initial HEA results show the suitability of HEA sample preparation and XFEL-based XRD characterisation under extreme shock loading, and are promising for experimental determination of the EoS of this emerging class of materials (beamtime proposal No.: 2024A8503 for a 6-hour preliminary experiment).",
+    "arxiv_url": "https://arxiv.org/abs/2603.21076v1",
+    "arxiv_id": "2603.21076",
+    "authors": [
+      "Hsin Hui Huang",
+      "Meguya Ryu",
+      "Shuji Kamegaki",
+      "Dominyka Stonyte",
+      "Tadas Malinauskas",
+      "Yoshiaki Nishijima",
+      "Rosalie Hocking",
+      "Nguyen Hoai An Le",
+      "Tomas Katkus",
+      "Haoran Mu",
+      "Soon Hock Ng",
+      "Samuel Pinches",
+      "Andrew S. M. Ang",
+      "Vygantas Mizeikis",
+      "Nadia Zatsepin",
+      "Kohei Miyanishi",
+      "Toshinori Yabuuchi",
+      "Hirotaka Nakamura",
+      "Alexis Amouretti",
+      "Norimasa Ozaki",
+      "Tommaso Vinci",
+      "Arturas Vailionis",
+      "Eugene G. Gamaly",
+      "Damien G. Hicks",
+      "Junko Morikawa",
+      "Saulius Juodkazis"
+    ],
+    "published": "2026-03-22",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "hep-ex"
+    ]
+  },
+  {
+    "title": "An innovative materials design protocol for the development of novel refractory high-entropy alloys for extreme environments",
+    "abstract": "In the quest of new materials that can withstand severe irradiation and mechanical extremes for advanced applications (e.g. fission reactors, fusion devices, space applications, etc), design, prediction and control of advanced materials beyond current material designs become a paramount goal. Here, though a combined experimental and simulation methodology, the design of a new nanocrystalline refractory high entropy alloy (RHEA) system is established. Compositions of this alloy, assessed under extreme environments and in situ electron-microscopy, revealed both high mechanical strength and thermal stability, grain refinement under heavy ion irradiation and outstanding irradiation resistance to dual-beam irradiation and helium implantation, marked by remarkable resistance to defect generation, growth and coalescence. The experimental and modeling results, which demonstrated notable agreement, can be applied to design and rapidly assess other alloys subjected to extreme environmental conditions.",
+    "arxiv_url": "https://arxiv.org/abs/2210.16409v1",
+    "arxiv_id": "2210.16409",
+    "authors": [
+      "O. El Atwani",
+      "H. T. Vo",
+      "M. Tunes",
+      "C. Lee",
+      "A. Alvarado",
+      "N. Krienke",
+      "J. D. Poplawsky",
+      "A. A. Kohnert",
+      "J. Gigax",
+      "W. -Y. Chen",
+      "M. Li",
+      "Y. Wang",
+      "J. S. Wróbel",
+      "Duc Nguyen-Manh",
+      "J. K. S. Baldwin",
+      "U. Tukac",
+      "E. Aydogan",
+      "S. Fensin",
+      "E. Martinez"
+    ],
+    "published": "2022-10-28",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Pressure effects on the electronic structure and superconductivity of (TaNb)$_{0.67}$(HfZrTi)$_{0.33}$ high entropy alloy",
+    "abstract": "Effects of pressure on the electronic structure, electron-phonon interaction, and superconductivity of the high entropy alloy (TaNb)$_{0.67}$(HfZrTi)$_{0.33}$ are studied in the pressure range 0 - 100 GPa. The electronic structure is calculated using the Korringa-Kohn-Rostoker method with the coherent potential approximation. Effects of pressure on the lattice dynamics are simulated using the Debye-Grüneisen model and the Grüneisen parameter at ambient conditions. In addition, the Debye temperature and Sommerfeld electronic heat capacity coefficient were experimentally determined. The electron-phonon coupling parameter $λ$ is calculated using the McMillan-Hopfield parameters and computed within the rigid muffin tin approximation. We find, that the system undergoes the Lifshitz transition, as one of the bands crosses the Fermi level at elevated pressures. The electron-phonon coupling parameter $λ$ decreases above 10 GPa. The calculated superconducting $T_c$ increases up to 40 - 50 GPa and, later, is stabilized at the larger value than for the ambient conditions, in agreement with the experimental findings. Our results show that the experimentally observed evolution of $T_c$ with pressure in (TaNb)$_{0.67}$(HfZrTi)$_{0.33}$ can be well explained by the classical electron-phonon mechanism.",
+    "arxiv_url": "https://arxiv.org/abs/1910.08312v1",
+    "arxiv_id": "1910.08312",
+    "authors": [
+      "K. Jasiewicz",
+      "B. Wiendlocha",
+      "K. Górnicka",
+      "K. Gofryk",
+      "M. Gazda",
+      "T. Klimczuk",
+      "J. Tobola"
+    ],
+    "published": "2019-10-18",
+    "categories": [
+      "cond-mat.supr-con",
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Primary damage and mechanical degradation of WTaCrV refractory high-entropy alloy: effects of solid-solution and chemical ordering",
+    "abstract": "As advanced nuclear reactors demand novel irradiation-tolerant materials, this study investigates the radiation damage and mechanical degradation of the promising WTaCrV refractory high-entropy alloy (RHEA). To isolate complex nanoscale chemical effects, we propose an atomistic modeling strategy comparing Average-Atom (AA), random solid-solution (RSS), and local chemical order (LCO) configurations using newly developed interatomic potentials. Collision cascades simulations reveal that the number of Frenkel pairs follow NRSS > NLCO > NAA at the same radiation dose. While the RSS effect accelerates defect generation due to rugged energy landscapes, LCO enhances lattice cohesion to mitigate radiation damage. Despite more primary defects in the RSS and LCO configurations compared with the AA configurations, the RSS and LCO effects can suppress radiation-induced mechanical degradation. Irradiation severely degrade the homogenized AA model but exert a limited impact on the strength and flow stress of the RSS and LCO models. This exceptional resistance is driven by inherent lattice distortion resulting from interactions among different alloy elements, which outweighs point defect induced lattice disruptions. Moreover, the complex interactions between deformation twins and point defects cause confined plastic flow, elevating flow stress in the RSS and LCO models. The findings provide atomistic guidance for performance assessment of next-generation structural materials for extreme nuclear environments.",
+    "arxiv_url": "https://arxiv.org/abs/2606.26019v1",
+    "arxiv_id": "2606.26019",
+    "authors": [
+      "Yihan Wu",
+      "Pengfei Yu",
+      "Yaohong Suo",
+      "Lei Zhang"
+    ],
+    "published": "2026-06-24",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Outstanding Radiation Resistance of Tungsten-based High Entropy Alloys",
+    "abstract": "A novel W-based refractory high entropy alloy with outstanding radiation resistance has been developed. The alloy was grown as thin films showing a bimodal grain size distribution in the nanocrystalline and ultrafine regimes and a unique 4 nm lamella-like structure revealed by atom probe tomography (APT). Transmission electron microscopy (TEM) and X-ray diffraction show an underlying body-centered cubic crystalline structure with certain black spots appearing after thermal annealing at elevated temperatures. Thorough analysis based on TEM and APT correlated the black spots with second phase particles rich in Cr and V. After both in situ and ex situ irradiation, these precipitates evolve to quasi-spherical particles with no sign of irradiation-created dislocation loops even after 8 dpa at either room temperature or 1073 K. Furthermore, nanomechanical testing shows a large hardness of 14 GPa in the as-deposited samples, with a slight increase after thermal annealing and almost negligible irradiation hardening. Theoretical modeling based on ab initio methodologies combined with Monte Carlo techniques predicts the formation of Cr and V rich second phase particles and points at equal mobilities of point defects as the origin of the exceptional radiation tolerance. The fact that these alloys are suitable for bulk production coupled with the exceptional radiation and mechanical properties makes them ideal structural materials for applications requiring extreme conditions.",
+    "arxiv_url": "https://arxiv.org/abs/1811.01915v1",
+    "arxiv_id": "1811.01915",
+    "authors": [
+      "O. El-Atwani",
+      "N. Li",
+      "M. Li",
+      "A. Devaraj",
+      "M. Schneider",
+      "D. Sobieraj",
+      "J. S. Wrobel",
+      "D. D. Nguyen-Manh",
+      "S. A. Maloy",
+      "E. Martinez"
+    ],
+    "published": "2018-11-05",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "cond-mat.other"
+    ]
+  },
+  {
+    "title": "Investigating into mechanisms of high temperature strength of refractory high-entropy alloys",
+    "abstract": "The yield strength plateau of two BCC refractory high entropy alloys (RHEAs) - MoNbTaVW and MoNbTaW was examined through hybrid Monte Carlo and molecular dynamics (MC/MD) simulations. By analyzing atomic diffusivities derived from vacancy formation and migration energies around the edge dislocation cores, the number of critical atomic swaps were calculated at different temperatures. Using hybrid MC/MD simulations of these critical swaps, we demonstrate that above 1400K, the stress required to move the dislocations gets saturated, indicating the effect of Dynamic Strain Ageing (DSA) via cross core motion. Further simulations on random solid solutions (0 MC swaps) revealed a similar plateau effect at the intermediate temperatures. This was attributed to the additional athermal stress arising from lattice distortions due to solid solution strengthening. Our findings suggest that the yield strength plateau results from an interplay between the DSA-driven diffusion process and athermal stress. Specifically, the plateau emerges from DSA mechanisms in the presence of atomic diffusion, whereas in the absence of diffusion, it is governed by athermal statistical lattice distortions. This dual mechanism framework provides a comprehensive explanation for the experimentally observed Yield strength behavior in RHEAs at intermediate temperatures.",
+    "arxiv_url": "https://arxiv.org/abs/2510.04589v1",
+    "arxiv_id": "2510.04589",
+    "authors": [
+      "Sai Anandhi Seetharaman",
+      "Soumyadipta Maiti",
+      "Ambesh Gupta",
+      "Beena Rai"
+    ],
+    "published": "2025-10-06",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "physics.comp-ph"
+    ]
+  },
+  {
+    "title": "Tuned Vacancy Diffusion by Mn via Anomalous Friedel Oscillations in NiCoFeCrMn High Entropy Alloys",
+    "abstract": "Vacancy is known to play a critical role in solid state diffusion and determine many properties of the materials. We report a proof-of-principle result on Mn in the role of tuning vacancy diffusion by an anomalous Friedel Oscillations effect in an equivalent NiCoFeCrMn high entropy alloy. The vacancy induced Friedel Oscillations is destroyed by the presence of the first nearest neighboring Mn, opening a channel for long-range influence on the surrounding atoms from the vacancy, resulting in a lower vacancy diffusion barrier energy, despite of the atom type. The effects lead to a remarkable diffusion overlaps of the two type defects, vacancy and interstitial, enhancing their recombination, which can explain well for the experimental results with suppression of vacancy clusters under irradiation. This finding presents new understanding on the atomic diffusion mechanism and thus suggests novel concepts for tuning defect properties in the design of advanced materials with outstanding properties, in a broad field.",
+    "arxiv_url": "https://arxiv.org/abs/2111.00855v1",
+    "arxiv_id": "2111.00855",
+    "authors": [
+      "Shaosong Huanga",
+      "Huaqing Guan",
+      "Fuyang Tian",
+      "Chenyang Lu",
+      "Qiu Xu",
+      "Jijun Zhao"
+    ],
+    "published": "2021-11-01",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Sparse mixed linear modeling with anchor-based guidance for high-entropy alloy discovery",
+    "abstract": "High-entropy alloys have attracted attention for their exceptional mechanical properties and thermal stability. However, the combinatorial explosion in the number of possible elemental compositions renders traditional trial-and-error experimental approaches highly inefficient for materials discovery. To solve this problem, machine learning techniques have been increasingly employed for property prediction and high-throughput screening. Nevertheless, highly accurate nonlinear models often suffer from a lack of interpretability, which is a major limitation. In this study, we focus on local data structures that emerge from the greedy search behavior inherent to experimental data acquisition. By introducing a linear and low-dimensional mixture regression model, we strike a balance between predictive performance and model interpretability. In addition, we develop an algorithm that simultaneously performs prediction and feature selection by considering multiple candidate descriptors. Through a case study on high-entropy alloys, this study introduces a method that combines anchor-guided clustering and sparse linear modeling to address biased data structures arising from greedy exploration in materials science.",
+    "arxiv_url": "https://arxiv.org/abs/2504.20354v1",
+    "arxiv_id": "2504.20354",
+    "authors": [
+      "Ryo Murakami",
+      "Seiji Miura",
+      "Akihiro Endo",
+      "Satoshi Minamoto"
+    ],
+    "published": "2025-04-29",
+    "categories": [
+      "cond-mat.mtrl-sci",
+      "stat.AP",
+      "stat.ME",
+      "stat.ML"
+    ]
+  },
+  {
+    "title": "Design of Eutectic High Entropy Alloys",
+    "abstract": "Eutectic high entropy alloys (EHEAs) are emerging as an exciting new class of structural alloys as they have shown very promising mechanical properties. However, how to design these alloys has been a challenge. In this work, a simple approach is presented for designing EHEAs. The introduced approach uses the composition of binary and ternary eutectic alloys for finding the composition of EHEAs. The approach is based on the assumption that EHEAs are originated from binary and ternary eutectic alloys. The approach is applied for alloy systems Al-Co-Cr-Fe-Ni, Co-Cr-Fe-Ni, Co-Cr-Fe-Ni-Ti, and Co-Cr-Fe-Ni-Ta and several EHEAs are predicted for these alloy systems. The predicted results are verified with thermodynamic simulations and experimental data. The results show that the introduced approach can be considered as a feasible and easy-to-use method for designing EHEAs. Based on the developed approach, any binary eutectic alloy can be used for designing multicomponent eutectic alloys.",
+    "arxiv_url": "https://arxiv.org/abs/2103.08216v2",
+    "arxiv_id": "2103.08216",
+    "authors": [
+      "Ali Shafiei"
+    ],
+    "published": "2021-03-15",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+    "abstract": "The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date. Systematic TEM analysis unveiled that the cooperation among L12 precipitation, extensive stacking faults (SFs), deformation twins (DTs), immobile Lomer-Cottrell (L-C) locks formed from interactions between SFs and SFs/DTs, hierarchical SFs/DTs networks, as well as hetero-deformation-induced strengthening dominated the plastic deformation at 600 C. Such a unique deformation mechanism enabled extremely high tensile strength and sustained ductility of the HEA at a high temperature.",
+    "arxiv_url": "https://arxiv.org/abs/2310.08850v1",
+    "arxiv_id": "2310.08850",
+    "authors": [
+      "Hongmin Zhang",
+      "Fanchao Meng",
+      "Haoyan Meng",
+      "Yang Tong",
+      "Peter K. Liaw",
+      "Xiao Yang",
+      "Lei Zhao",
+      "Haizhou Wang",
+      "Yanfei Gao",
+      "Shuying Chen"
+    ],
+    "published": "2023-10-13",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Design and Characterization of Self Lubricating Refractory High Entropy Alloy Based Multilayered Films",
+    "abstract": "Refractory high entropy alloys (RHEA) have been proven to have excellent mechanical properties with a potential use as protective thin films. However, the combination of high hardness with low friction and wear is a major challenge in the design of self lubricating RHEA films. In this study, we show that designing of NbMoWTa/Ag multilayered films give a remarkable reduction in friction and at same time maintain high hardness. Interestingly, it's found that the bcc superlattice dominates in both layers and the interfaces are highly coherent when the individual layer thickness h is reduced below 10 nm. The film properties are then strongly dependent on h ranging from 100 to 2.5 nm, and the most promising properties are obtained when the interface structure transforms from incoherent to coherent ones. Specially, the multilayer with h = 2.5 nm exhibits superior tribological performance over monolithic NbMoWTa, due to the significant coherent strengthening along with the self-lubricating ability in the multilayer. This tailored phase transition and coherent structure between matrix and lubrication phases can also provide an optimal wear rate-coefficient of friction (COF) combination, which is higher than most of the Ag containing self lubricating films. The current work might open a new route towards the development of innovative self lubricating RHEA films with excellent tribological properties in general.",
+    "arxiv_url": "https://arxiv.org/abs/2110.04199v2",
+    "arxiv_id": "2110.04199",
+    "authors": [
+      "Dawei Luo",
+      "Qing Zhou",
+      "Wenting Ye",
+      "Yue Ren",
+      "Christian Greiner",
+      "Yixuan He",
+      "Haifeng Wang"
+    ],
+    "published": "2021-10-08",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "Quasi-localized modes in crystalline high entropy alloys",
+    "abstract": "High Entropy Alloys (HEAs) are designed by mixing multiple metallic species in nearly the same amount to obtain crystalline or amorphous materials with exceptional mechanical properties. Here we use molecular dynamics simulations to investigate the role of positional and compositional disorder in determining the low-frequency vibrational properties of CrMnFeCoNi HEAs. Our results show that the expected dependence of the density of states on the frequency as $D(ω)\\simω^4$ is recovered for amorphous HEAs and is also observed for partially crystallized alloys with deviations that depend on the degree of crystallization. We find that the quasi-localized vibrations are still visible in crystalline HEAs, albeit suppressed compared to the corresponding amorphous alloys. Our work offers a unified perspective to describe HEA mechanical properties in terms of their vibrational density of states.",
+    "arxiv_url": "https://arxiv.org/abs/2303.09161v1",
+    "arxiv_id": "2303.09161",
+    "authors": [
+      "Silvia Bonfanti",
+      "Roberto Guerra",
+      "Rene Alvarez-Donado",
+      "Pawel Sobkowicz",
+      "Stefano Zapperi",
+      "Mikko Alava"
+    ],
+    "published": "2023-03-16",
+    "categories": [
+      "cond-mat.dis-nn",
+      "cond-mat.mtrl-sci"
+    ]
+  },
+  {
+    "title": "An Analytic Model to Determine the Interstitial-Solute Energetics and Underlying Mechanism in Refractory High-Entropy Alloys",
+    "abstract": "The solution and diffusion of interstitial non-metallic solutes (INSs) like H, He, O, C, N, P, and S is common in refractory high-entropy alloys (RHEAs) and essentially controls the RHEAs properties. However, the disorder local chemical environments of RHEAs hinder the quantitative prediction of the stability and diffusivity of INSs and the understanding of the underlying mechanism. Based on the tight-binding models, we propose an analytic model for determining the stability and diffusivity of INSs in RHEAs, by approximating the bonding length between INSs and their neighbors with the atomic radius of the neighbors in elemental states. This predictive model identifies that the energetics of INSs depends linearly on the d-band width of their neighbors, with the slope determined by the valence of INSs. Our scheme provides an electronic-level understanding of INSs in RHEAs and explains key experimental observations, which can serve as an effective tool for designing advanced RHEAs.",
+    "arxiv_url": "https://arxiv.org/abs/2508.03163v1",
+    "arxiv_id": "2508.03163",
+    "authors": [
+      "Qianxi Zhu",
+      "Wang Gao",
+      "Qing Jiang"
+    ],
+    "published": "2025-08-05",
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ]
+  }
+]

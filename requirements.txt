@@ -1,3 +1,4 @@
 mp-api
 python-dotenv
-groq
+groq 
+arxiv
