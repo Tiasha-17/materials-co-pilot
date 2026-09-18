@@ -1,4 +1,7 @@
 mp-api
 python-dotenv
-groq 
+groq
 arxiv
+voyageai>=0.3.7,<1
+chromadb>=1.0,<2
+pytest>=8,<10
