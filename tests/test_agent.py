@@ -35,7 +35,7 @@ def client_for(*messages):
 def tool_results(request):
     """Read results from either the agent transcript or final extraction input."""
     if "response_format" in request:
-        return json.loads(request["messages"][-1]["content"])["tool_results"]
+        return json.loads(request["messages"][1]["content"])["tool_results"]
     return [m for m in request["messages"] if m["role"] == "tool"]
 
 
@@ -253,3 +253,75 @@ def test_mixed_answer_preserves_computed_values(citation_paper, mocked_tools):
     assert citation_paper["excerpt"] in answer
     assert '"band_gap": 2.06' in answer
     assert "not necessarily experimental" in answer
+
+
+def test_whitespace_and_unicode_quote_matching(citation_paper):
+    citation_paper['excerpt'] = "The alloy’s two‑phase structure\nshows   strength."
+    payload = json.dumps({'evidence': [{'arxiv_id': citation_paper['arxiv_id'],
+                                     'quote': "The alloy's two-phase structure shows strength."}]})
+    evidence, reason = copilot.validate_evidence(payload, {citation_paper['arxiv_id']: citation_paper})
+    assert reason == 'successful_grounded_evidence'
+    assert evidence
+
+
+@pytest.mark.parametrize('bad,reason', [
+    ('not JSON', 'malformed_evidence_json'),
+    (json.dumps({'evidence': [{'arxiv_id': 'fake', 'quote': 'text'}]}), 'unknown_arxiv_id'),
+    (json.dumps({'evidence': [{'arxiv_id': '2401.00001', 'quote': 'Invented science'}]}), 'quotation_mismatch'),
+    (json.dumps({'evidence': []}), 'no_evidence_selected'),
+])
+def test_retry_once_with_validation_feedback(bad, reason, citation_paper, mocked_tools):
+    mocked_tools[1].return_value = [citation_paper]
+    good = json.dumps({'evidence': [{'arxiv_id': citation_paper['arxiv_id'], 'quote': citation_paper['excerpt']}]})
+    client, history = client_for(message([call('search_papers', '{"query":"HEA"}')]),
+                                 message(content=bad), message(content=good))
+    diagnostics = []
+    answer = copilot.ask_material_question('HEA?', client=client, evidence_trace=diagnostics)
+    assert citation_paper['title'] in answer
+    assert [d['reason'] for d in diagnostics] == [reason, 'successful_grounded_evidence']
+    assert reason in history[-1]['messages'][-1]['content']
+    assert len(history) == 3
+    assert reason not in answer
+
+
+def test_failed_retry_retains_computed_properties(citation_paper, mocked_tools):
+    mocked_tools[1].return_value = [citation_paper]
+    client, history = client_for(message([
+        call('get_material', '{"formula":"TiO2"}', 'a'),
+        call('search_papers', '{"query":"HEA"}', 'b'),
+    ]), message(content='bad'), message(content='bad again'))
+    diagnostics = []
+    answer = copilot.ask_material_question('Mixed?', client=client, evidence_trace=diagnostics)
+    assert '"band_gap": 2.06' in answer
+    assert 'No unverified scientific explanation' in answer
+    assert len(history) == 3
+    assert [d['reason'] for d in diagnostics] == ['malformed_evidence_json'] * 2
+
+
+def test_cited_insufficient_crystallographic_detail(citation_paper):
+    citation_paper['excerpt'] = 'Dislocations within the two phases were studied by microscopy.'
+    payload = json.dumps({'evidence': [{'arxiv_id': citation_paper['arxiv_id'], 'quote': citation_paper['excerpt']}]})
+    answer = copilot.render_literature_answer(payload, {citation_paper['arxiv_id']: citation_paper},
+                                             'What slip systems and Burgers vectors are reported?')
+    assert 'does not specify slip-system indices or Burgers vectors' in answer
+    assert citation_paper['arxiv_url'] in answer
+    assert citation_paper['excerpt'] in answer
+
+
+@pytest.mark.parametrize('formula', ['XYZ123', 'NotARealMaterial'])
+def test_invalid_formula_rejection_policy_without_lookup(formula, mocked_tools):
+    answer = f'{formula} is not a valid chemical formula. Please provide a valid formula.'
+    client, history = client_for(message(content=answer))
+    trace = []
+    assert copilot.ask_material_question(f'Look up {formula}', client=client, tool_trace=trace) == answer
+    assert trace == []
+    mocked_tools[0].assert_not_called()
+    assert 'WITHOUT get_material' in history[0]['messages'][0]['content']
+    assert 'unless a lookup was actually performed' in history[0]['messages'][0]['content']
+    assert 'no entry' not in answer
+
+
+def test_normalization_does_not_change_scientific_values(citation_paper):
+    citation_paper['excerpt'] = 'Stress was −10 MPa, not 10 MPa.'
+    payload = json.dumps({'evidence': [{'arxiv_id': citation_paper['arxiv_id'], 'quote': 'Stress was 10 MPa'}]})
+    assert copilot.validate_evidence(payload, {citation_paper['arxiv_id']: citation_paper})[1] == 'quotation_mismatch'

@@ -1,0 +1,169 @@
+[
+  {
+    "id": "case_01",
+    "question": "What is the computed band gap of TiO2 in Materials Project?",
+    "category": "property_lookup",
+    "expected_tools": [
+      "get_material"
+    ],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Identify the structure and label the value computed, not experimental.",
+    "notes": "Do not fix an expected numeric value; database values can change."
+  },
+  {
+    "id": "case_02",
+    "question": "What are the space group and crystal system of Fe in Materials Project?",
+    "category": "property_lookup",
+    "expected_tools": [
+      "get_material"
+    ],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Report the selected structure and its computed metadata.",
+    "notes": "The lookup chooses the lowest energy above hull."
+  },
+  {
+    "id": "case_03",
+    "question": "Compare the computed band gaps of Si and Ge using Materials Project.",
+    "category": "property_lookup",
+    "expected_tools": [
+      "get_material"
+    ],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Use a lookup for each formula and distinguish structure-specific values.",
+    "notes": "Tool-set matching alone does not verify two separate calls; inspect the trace."
+  },
+  {
+    "id": "case_04",
+    "question": "What deformation mechanisms are reported in dual-phase high-entropy alloys?",
+    "category": "literature_only",
+    "expected_tools": [
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Only quote retrieved abstracts; use exact citation metadata and acknowledge missing detail.",
+    "notes": "Regression question for unsupported mechanisms and fake author placeholders."
+  },
+  {
+    "id": "case_05",
+    "question": "What do the HEA abstracts report about strength and ductility?",
+    "category": "literature_only",
+    "expected_tools": [
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Cite exact retrieved evidence; do not generalize beyond the studied alloys.",
+    "notes": "Abstracts only."
+  },
+  {
+    "id": "case_06",
+    "question": "What slip systems and Burgers vectors are reported for dual-phase HEAs?",
+    "category": "literature_only",
+    "expected_tools": [
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "If abstracts lack these details, explicitly say evidence is insufficient.",
+    "notes": "A justified abstention may have no citation; inspect manually if the citation check fails."
+  },
+  {
+    "id": "case_07",
+    "question": "What evidence do the abstracts provide about high-temperature strength in refractory HEAs?",
+    "category": "literature_only",
+    "expected_tools": [
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Quote relevant abstracts without adding background mechanisms.",
+    "notes": "Do not equate simulations with experiments."
+  },
+  {
+    "id": "case_08",
+    "question": "Look up the crystal structure of Fe in Materials Project, then retrieve abstract evidence about deformation of Fe-containing HEAs.",
+    "category": "mixed",
+    "expected_tools": [
+      "get_material",
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Separate pure Fe computed properties from HEA abstract evidence and cite the latter.",
+    "notes": "Pure-element properties are not alloy measurements."
+  },
+  {
+    "id": "case_09",
+    "question": "Give the Materials Project crystal system of Ni and find abstract evidence about mechanical behavior of Ni-containing high-entropy alloys.",
+    "category": "mixed",
+    "expected_tools": [
+      "get_material",
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Keep Ni lookup results distinct from alloy literature, with real citations.",
+    "notes": "Tests using both tools without claiming pure Ni represents an HEA."
+  },
+  {
+    "id": "case_10",
+    "question": "Compare the computed band gaps of Si and Ge, and separately retrieve evidence about HEA strength and ductility.",
+    "category": "mixed",
+    "expected_tools": [
+      "get_material",
+      "search_papers"
+    ],
+    "literature_expected": true,
+    "expected_grounding_behavior": "Keep the two requests separate; quote literature and label computed values.",
+    "notes": "Explicit independent tasks; no scientific relationship is implied."
+  },
+  {
+    "id": "case_11",
+    "question": "What is its band gap?",
+    "category": "ambiguous",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Ask which material the user means; do not guess a formula.",
+    "notes": "No prior conversation is supplied."
+  },
+  {
+    "id": "case_12",
+    "question": "Which alloy is best?",
+    "category": "ambiguous",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Ask for the application, candidate alloys, and criteria.",
+    "notes": "Expected policy is clarification before lookup."
+  },
+  {
+    "id": "case_13",
+    "question": "Look up XYZ123 in Materials Project.",
+    "category": "invalid_material",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Reject the obviously invalid chemical formula directly without a tool. Do not invent properties or claim Materials Project has no entry unless an actual lookup was performed.",
+    "notes": "Direct invalid-input rejection is expected; no database lookup is needed."
+  },
+  {
+    "id": "case_14",
+    "question": "What is the Materials Project band gap of NotARealMaterial?",
+    "category": "invalid_material",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Reject the obviously invalid chemical formula directly without a tool. Do not invent properties or claim Materials Project has no entry unless an actual lookup was performed.",
+    "notes": "Direct invalid-input rejection is expected; no database lookup is needed."
+  },
+  {
+    "id": "case_15",
+    "question": "Write a short birthday greeting for my friend.",
+    "category": "out_of_domain",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Do not fabricate material data or literature citations.",
+    "notes": "A brief answer or scope clarification is acceptable."
+  },
+  {
+    "id": "case_16",
+    "question": "What is 17 multiplied by 6?",
+    "category": "out_of_domain",
+    "expected_tools": [],
+    "literature_expected": false,
+    "expected_grounding_behavior": "Answer without materials tools or scientific citations.",
+    "notes": "Arithmetic control; expected answer 102 is reviewed manually."
+  }
+]

@@ -90,3 +90,13 @@ next model request disables further tools and asks for final evidence selection;
 this avoids repeated searches exhausting Groq’s token budget. Earlier material
 tool rounds and multiple calls in one response remain supported. For mixed questions, computed
 Materials Project values are shown separately, directly from the tool output.
+
+Quotation matching normalizes whitespace, Unicode canonical equivalents, curly
+quotes, and equivalent hyphens. It does not normalize scientific minus signs,
+subscripts, numerical values, or substitute scientific terms. Every selected ID
+must be retrieved and every normalized quotation must occur in that abstract.
+An invalid or empty first selection receives one retry with validation feedback;
+a second failed selection safely abstains. Evaluation records both reasons and
+selector responses. Relevant quotations can support a cited, limited answer even
+when requested details are absent, without inventing those details. Materials
+Project results remain independently available in mixed answers.

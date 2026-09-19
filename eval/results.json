@@ -1,0 +1,1227 @@
+{
+  "started_at": "2026-09-19T00:27:40.561591+00:00",
+  "model": "openai/gpt-oss-120b",
+  "status": "completed",
+  "case_count": 16,
+  "results": [
+    {
+      "id": "case_01",
+      "question": "What is the computed band gap of TiO2 in Materials Project?",
+      "category": "property_lookup",
+      "expected_tools": [
+        "get_material"
+      ],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Identify the structure and label the value computed, not experimental.",
+      "notes": "Do not fix an expected numeric value; database values can change.",
+      "actual_tools": [
+        "get_material"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_7c7f0239-ea77-4a11-8995-ae4f84886696",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-390",
+            "formula": "TiO2",
+            "band_gap": 2.063,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Tetragonal",
+            "space_group": "I4_1/amd"
+          }
+        }
+      ],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "The Materials Project entry for TiO₂ (mp‑390) lists a computed band gap of **2.063 eV**.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_02",
+      "question": "What are the space group and crystal system of Fe in Materials Project?",
+      "category": "property_lookup",
+      "expected_tools": [
+        "get_material"
+      ],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Report the selected structure and its computed metadata.",
+      "notes": "The lookup chooses the lowest energy above hull.",
+      "actual_tools": [
+        "get_material"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_73a70ffb-c9d9-4edb-b7cf-47d84fc6d38e",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-13",
+            "formula": "Fe",
+            "band_gap": 0.0,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Im-3m"
+          }
+        }
+      ],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "**Space group:** Im‑3m  \n**Crystal system:** Cubic  \n\nThese values come from the Materials Project entry for elemental iron (Fe) (material ID mp-13).",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_03",
+      "question": "Compare the computed band gaps of Si and Ge using Materials Project.",
+      "category": "property_lookup",
+      "expected_tools": [
+        "get_material"
+      ],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Use a lookup for each formula and distinguish structure-specific values.",
+      "notes": "Tool-set matching alone does not verify two separate calls; inspect the trace.",
+      "actual_tools": [
+        "get_material"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_0051fa00-5181-4530-98f1-11b2297c1245",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-149",
+            "formula": "Si",
+            "band_gap": 0.61,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Fd-3m"
+          }
+        },
+        {
+          "name": "get_material",
+          "call_id": "fc_abe39071-feda-4af6-8312-1fe749a34823",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-32",
+            "formula": "Ge",
+            "band_gap": 0.0,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Fd-3m"
+          }
+        }
+      ],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "The Materials Project data (lowest‑energy‑above‑hull structures) give the following computed band gaps:\n\n- **Silicon (Si, mp‑149)** – band gap = **0.61 eV**  \n- **Germanium (Ge, mp‑32)** – band gap = **0.0 eV** (metallic/zero‑gap in this calculation)\n\nThus, the computed band gap for Si is modestly positive, while the same‑type calculation for Ge predicts a vanishing gap.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_04",
+      "question": "What deformation mechanisms are reported in dual-phase high-entropy alloys?",
+      "category": "literature_only",
+      "expected_tools": [
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Only quote retrieved abstracts; use exact citation metadata and acknowledge missing detail.",
+      "notes": "Regression question for unsupported mechanisms and fake author placeholders.",
+      "actual_tools": [
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "search_papers",
+          "call_id": "fc_194f399e-78dd-46d8-ab2a-94f7eeec396a",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.35135626792907715
+            },
+            {
+              "arxiv_id": "2105.04597",
+              "title": "The high temperature mechanical properties and the correlated microstructure/texture evolutions of a TWIP high entropy alloy",
+              "url": "https://arxiv.org/abs/2105.04597v1",
+              "arxiv_url": "https://arxiv.org/abs/2105.04597v1",
+              "authors": [
+                "A. Nabizada",
+                "A. Zarei-Hanzaki",
+                "H. R. Abedi",
+                "M. H. Barati",
+                "P. Asghari-Rad",
+                "H. S. Kim"
+              ],
+              "published": "2021-05-10",
+              "excerpt": "The present work deals with the microstructure and texture evolutions of a TWIP high entropy alloy at various temperatures. Toward this end, the tensile tests were conducted at temperatures ranging from 298 to 873 K under the strain rate of 0.001s-1. The experimented material exhibited an extraordinary room temperature work hardening behavior, in respect of both the instantaneous strain hardening exponent and the work hardening rate values. This resulted in an acceptable ultimate tensile strength /ductility balance and was justified considering the high activity of twinning and planar slip. Such work hardening capacity deteriorated at higher temperatures due to increasing the dislocation annihilation rate and the stacking fault energy values that suppressed twin formation and dislocation accumulation. However, the decrease in amplitude and extent of the work hardening region was insignificant compared with other single-phase high entropy alloys. This was attributed to the high capacity of the alloy for dislocation storage at various deformation temperatures. The serrated flow was observed at 773 and 873 K due to the dynamic strain aging (DSA) mechanism. Interestingly, in this case, the DSA mechanism has a beneficial effect on overall ductility, which was attributed to the increase in the strain hardening exponent result in a delay of necking. Texture examination also reveals the formation of a double fiber texture due to the simultaneous contribution of twinning and octahedral slip.",
+              "distance": 0.36183035373687744
+            },
+            {
+              "arxiv_id": "2310.12078",
+              "title": "Deformation Mechanisms in High Entropy Alloys: A Minireview of Short-Range Order Effects",
+              "url": "https://arxiv.org/abs/2310.12078v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.12078v1",
+              "authors": [
+                "Novin Rasooli",
+                "Wei Chen",
+                "Matthew Daly"
+              ],
+              "published": "2023-10-18",
+              "excerpt": "The complex atomic scale structure of high entropy alloys presents new opportunities to expand the deformation theories of mechanical metallurgy. In this regard, solute-defect interactions have emerged as critical piece in elucidating the operation of deformation mechanisms. While notable progress has been made in understanding solute-defect interactions for random solute arrangements, recent interest in high entropy alloys with short-range order adds a new layer of structural complexity for which a cohesive picture has yet to emerge. To this end, this minireview synthesizes the current understanding of short-range order effects on defect behavior through an examination of the key recent literature. This analysis centers on the nanoscale metallurgy of deformation mechanisms, with the order-induced changes to the relevant defect energy landscapes serving as a touchstone for discussion. The topics reviewed include dislocation-mediated strengthening, twinning and phase transformation-based mechanisms, and vacancy-mediated processes. This minireview concludes with remarks on current challenges and opportunities for future efforts.",
+              "distance": 0.39609450101852417
+            },
+            {
+              "arxiv_id": "2507.13218",
+              "title": "Phase transitions of eutectic high entropy alloy AlCoCrFeNi2.1 under shock compression",
+              "url": "https://arxiv.org/abs/2507.13218v2",
+              "arxiv_url": "https://arxiv.org/abs/2507.13218v2",
+              "authors": [
+                "Sophie E. Parsons",
+                "Kento Katagiri",
+                "Hangman Chen",
+                "Anirudh Hari",
+                "Sara J. Irvine",
+                "Dorian Luccioni",
+                "Rayen Lin",
+                "Laura E. Madril",
+                "Tharun Reddy",
+                "William J. McKinney",
+                "Jie Ren",
+                "Wuxian Yang",
+                "Norimasa Ozaki",
+                "Alexis Amouretti",
+                "Ryosuke Kodama",
+                "Hirotaka Nakamura",
+                "Yusuke Nakanishi",
+                "Masato Ota",
+                "Yusuke Seto",
+                "Sota Takagi",
+                "Takuo Okuchi",
+                "Yuhei Umeda",
+                "Yuichi Inubushi",
+                "Kohei Miyanishi",
+                "Keiichi Sueda",
+                "Tadashi Togashi",
+                "Makina Yabashi",
+                "Toshinori Yabuuchi",
+                "Wanghui Li",
+                "Paul E. Specht",
+                "Penghui Cao",
+                "Wen Chen",
+                "Yogesh K. Vohra",
+                "Leora Dresselhaus-Marais"
+              ],
+              "published": "2025-07-17",
+              "excerpt": "High entropy alloys (HEAs) are a new class of metals that exhibit unique mechanical performance. Among HEAs, additively manufactured eutectic high entropy alloys (AM-EHEAs) have recently emerged as candidate materials for use in extreme conditions due to their simultaneous high strength and ductility. However, the deformation and structural evolution of AM-EHEAs under conditions of high pressure have not been well characterized, limiting their use in extreme applications. We present dynamic compression experiments and molecular dynamics simulations studying the structural evolution of AM-EHEA AlCoCrFeNi2.1 when compressed to pressures up to 400 GPa. Our in-situ X-ray diffraction measurements capture the appearance of fcc and bcc phases at different pressure conditions, with pure- and mixed-phase regions. Understanding the phase stability and structural evolution of the AM EHEA offers new insights to guide the development of high-performance complex materials for extreme conditions.",
+              "distance": 0.42246365547180176
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2409.20368\",\"quote\":\"Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\n\n[Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy](https://arxiv.org/abs/2409.20368v1) (arXiv 2409.20368; published 2024-09-30).",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2409.20368v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_05",
+      "question": "What do the HEA abstracts report about strength and ductility?",
+      "category": "literature_only",
+      "expected_tools": [
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Cite exact retrieved evidence; do not generalize beyond the studied alloys.",
+      "notes": "Abstracts only.",
+      "actual_tools": [
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "search_papers",
+          "call_id": "fc_00426306-7051-4ac4-9e54-73c9a299d35f",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2310.08850",
+              "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+              "url": "https://arxiv.org/abs/2310.08850v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.08850v1",
+              "authors": [
+                "Hongmin Zhang",
+                "Fanchao Meng",
+                "Haoyan Meng",
+                "Yang Tong",
+                "Peter K. Liaw",
+                "Xiao Yang",
+                "Lei Zhao",
+                "Haizhou Wang",
+                "Yanfei Gao",
+                "Shuying Chen"
+              ],
+              "published": "2023-10-13",
+              "excerpt": "The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date. Systematic TEM analysis unveiled that the cooperation among L12 precipitation, extensive stacking faults (SFs), deformation twins (DTs), immobile Lomer-Cottrell (L-C) locks formed from interactions between SFs and SFs/DTs, hierarchical SFs/DTs networks, as well as hetero-deformation-induced strengthening dominated the plastic deformation at 600 C. Such a unique deformation mechanism enabled extremely high tensile strength and sustained ductility of the HEA at a high temperature.",
+              "distance": 0.37491410970687866
+            },
+            {
+              "arxiv_id": "2102.09055",
+              "title": "Mechanical behavior of high-entropy alloys: A review",
+              "url": "https://arxiv.org/abs/2102.09055v1",
+              "arxiv_url": "https://arxiv.org/abs/2102.09055v1",
+              "authors": [
+                "Yuanyuan Shang",
+                "Jamieson Brechtl",
+                "Claudio Psitidda",
+                "Peter K. Liaw"
+              ],
+              "published": "2021-02-17",
+              "excerpt": "High-entropy alloys (HEAs) are materials that consist of equimolar or near-equimolar multiple principal components but tend to form single phases, which is a new research topic in the field of metallurgy, have attracted extensive attention in the past decade. The HEAs families contain the face-centered-cubic (fcc), body-centered-cubic (bcc), and hexagonal-close-packed (hcp)-structured HEAs. On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs. Scientists have explored in this direction since the advent of HEAs. On the other hand, the pursuit of high strength and good plasticity is the critical research issue of materials. Hence, strengthening of HEAs is a crucial issue. Recently, many articles are focusing on the strengthening strategies of HEAs[1-14]. In this chapter, we reviewed the recent work on the room-temperature elastic properties and mechanical behavior of HEAs, including the mechanisms behind the plastic deformation of HEAs at both low and high temperatures. Furthermore, the present work examined the strengthening strategies of HEAs, e.g. strain hardening, grain-boundary strengthening, solid-solution strengthening, and particle strengthening. The fatigue, creep, and fracture properties were briefly introduced. Lastly, the future scientific issues and challenges of HEAs were discussed.",
+              "distance": 0.398967444896698
+            },
+            {
+              "arxiv_id": "2107.03202",
+              "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+              "url": "https://arxiv.org/abs/2107.03202v1",
+              "arxiv_url": "https://arxiv.org/abs/2107.03202v1",
+              "authors": [
+                "Fan Yang",
+                "Lilin Wang",
+                "Zhijun Wang",
+                "Qingfeng Wu",
+                "Kexuan Zhou",
+                "Weidong Huang",
+                "Xin Lin"
+              ],
+              "published": "2021-07-07",
+              "excerpt": "With important application prospects, eutectic high entropy alloys have received extensive attention for their excellent strength and ductility in a large temperature range. The excellent casting characteristics of eutectic high entropy alloys make it possible to achieve well manufacturability of selective laser melting. For the first time, we have achieved crack-free eutectic high entropy alloy fabricated by selective laser melting, which has excellent mechanical properties in a wide temperature range of -196 degrees Celsius~760 degrees Celsius due to ultra-fine eutectic lamellar spacing of 150 ~ 200nm and lamellar colony of 2 ~ 6 μm. Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.",
+              "distance": 0.4109804630279541
+            },
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.4144095182418823
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2310.08850\",\"quote\":\"The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date.\"},{\"arxiv_id\":\"2107.03202\",\"quote\":\"Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.\"},{\"arxiv_id\":\"2102.09055\",\"quote\":\"On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date.\n\n[An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy](https://arxiv.org/abs/2310.08850v1) (arXiv 2310.08850; published 2023-10-13).\n\n> Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.\n\n[Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting](https://arxiv.org/abs/2107.03202v1) (arXiv 2107.03202; published 2021-07-07).\n\n> On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs.\n\n[Mechanical behavior of high-entropy alloys: A review](https://arxiv.org/abs/2102.09055v1) (arXiv 2102.09055; published 2021-02-17).",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2310.08850v1"
+        },
+        {
+          "title": "Mechanical behavior of high-entropy alloys: A review",
+          "arxiv_url": "https://arxiv.org/abs/2102.09055v1"
+        },
+        {
+          "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+          "arxiv_url": "https://arxiv.org/abs/2107.03202v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_06",
+      "question": "What slip systems and Burgers vectors are reported for dual-phase HEAs?",
+      "category": "literature_only",
+      "expected_tools": [
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "If abstracts lack these details, explicitly say evidence is insufficient.",
+      "notes": "A justified abstention may have no citation; inspect manually if the citation check fails.",
+      "actual_tools": [
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "search_papers",
+          "call_id": "fc_fb8209a3-ec77-4cb3-94af-a8d2f8c006a8",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.5549939870834351
+            },
+            {
+              "arxiv_id": "2105.04597",
+              "title": "The high temperature mechanical properties and the correlated microstructure/texture evolutions of a TWIP high entropy alloy",
+              "url": "https://arxiv.org/abs/2105.04597v1",
+              "arxiv_url": "https://arxiv.org/abs/2105.04597v1",
+              "authors": [
+                "A. Nabizada",
+                "A. Zarei-Hanzaki",
+                "H. R. Abedi",
+                "M. H. Barati",
+                "P. Asghari-Rad",
+                "H. S. Kim"
+              ],
+              "published": "2021-05-10",
+              "excerpt": "The present work deals with the microstructure and texture evolutions of a TWIP high entropy alloy at various temperatures. Toward this end, the tensile tests were conducted at temperatures ranging from 298 to 873 K under the strain rate of 0.001s-1. The experimented material exhibited an extraordinary room temperature work hardening behavior, in respect of both the instantaneous strain hardening exponent and the work hardening rate values. This resulted in an acceptable ultimate tensile strength /ductility balance and was justified considering the high activity of twinning and planar slip. Such work hardening capacity deteriorated at higher temperatures due to increasing the dislocation annihilation rate and the stacking fault energy values that suppressed twin formation and dislocation accumulation. However, the decrease in amplitude and extent of the work hardening region was insignificant compared with other single-phase high entropy alloys. This was attributed to the high capacity of the alloy for dislocation storage at various deformation temperatures. The serrated flow was observed at 773 and 873 K due to the dynamic strain aging (DSA) mechanism. Interestingly, in this case, the DSA mechanism has a beneficial effect on overall ductility, which was attributed to the increase in the strain hardening exponent result in a delay of necking. Texture examination also reveals the formation of a double fiber texture due to the simultaneous contribution of twinning and octahedral slip.",
+              "distance": 0.575025200843811
+            },
+            {
+              "arxiv_id": "2405.02691",
+              "title": "Ab-initio study of the structural, elastic and dislocation properties of body-centered cubic refractory HfNbTaTiZr high entropy alloy",
+              "url": "https://arxiv.org/abs/2405.02691v1",
+              "arxiv_url": "https://arxiv.org/abs/2405.02691v1",
+              "authors": [
+                "Asif Iqbal Bhatti",
+                "David Tingaud",
+                "M. Seydou",
+                "Sylvain Queyreau"
+              ],
+              "published": "2024-05-04",
+              "excerpt": "This study delves into bcc HfNbTaTiZr refractory high entropy alloys, focusing on the $\\frac{1}{2}\\langle111\\rangle$ screw dislocation core structures. While traditional observations in pure elements often revealed compact dislocation cores, our investigation reveals variability, including instances of compact, split, or degenerate cores. Building upon the current understanding of dislocation behavior, we propose that this observed variability may be intricately linked to the presence of chemical short-range order within the alloy. The unique composition of HfNbTaTiZr, between bcc and hcp elements, introduces a dynamic interplay influencing the dislocation core structure. In light of these findings, we discuss the implications for plasticity mechanisms in high entropy alloys. The presence of varied dislocation core structures suggests a complex interplay between local phases and short-range ordering, influencing the material's response to external stresses. This challenges the conventional understanding of dislocation-mediated plasticity and opens avenues for tailoring the mechanical properties of refractory alloys through the controlled manipulation of short-range order.",
+              "distance": 0.5875104069709778
+            },
+            {
+              "arxiv_id": "2208.00234",
+              "title": "Atomistic simulations of ductile failure in a b.c.c. high entropy alloy",
+              "url": "https://arxiv.org/abs/2208.00234v1",
+              "arxiv_url": "https://arxiv.org/abs/2208.00234v1",
+              "authors": [
+                "Franco Aquistapace",
+                "Nicolás Vazquez",
+                "Matías Chiarpotti",
+                "Orlando Deluigi",
+                "Carlos J. Ruestes",
+                "Eduardo M. Bringa"
+              ],
+              "published": "2022-07-30",
+              "excerpt": "Ductile failure is studied in a bcc HfNbTaZr High Entropy Alloy (HEA) with a pre-existing void. Using molecular dynamics simulations of uniaxial tensile tests, we explore the effect of void radius on the elastic modulus and yield stress. The elastic modulus scales with porosity as in closed-cell foams. The critical stress for dislocation nucleation as a function of the void radius is very well described by a model designed after pure bcc metals, taking into account a larger core radius for the HEA. Twinning takes place as a complementary deformation mechanism, and some detwinning occurs at large strain. No solid-solid phase transitions are identified. The concurrent effects of element size mismatch and plasticity lead to significant lattice disorder. By comparing our HEA results to pure tantalum simulations, we show that the critical stress for dislocation nucleation and the resulting dislocation densities are much lower than for pure Ta, as expected from lower energy barriers due to chemical complexity",
+              "distance": 0.5988746881484985
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2409.20368\",\"quote\":\"Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\n\nThis abstract discusses dislocations in the two phases but does not specify slip-system indices or Burgers vectors.\n\n[Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy](https://arxiv.org/abs/2409.20368v1) (arXiv 2409.20368; published 2024-09-30).",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2409.20368v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_07",
+      "question": "What evidence do the abstracts provide about high-temperature strength in refractory HEAs?",
+      "category": "literature_only",
+      "expected_tools": [
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Quote relevant abstracts without adding background mechanisms.",
+      "notes": "Do not equate simulations with experiments.",
+      "actual_tools": [
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "search_papers",
+          "call_id": "fc_347b1777-4829-4391-8a6b-ba854c09884a",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2210.16409",
+              "title": "An innovative materials design protocol for the development of novel refractory high-entropy alloys for extreme environments",
+              "url": "https://arxiv.org/abs/2210.16409v1",
+              "arxiv_url": "https://arxiv.org/abs/2210.16409v1",
+              "authors": [
+                "O. El Atwani",
+                "H. T. Vo",
+                "M. Tunes",
+                "C. Lee",
+                "A. Alvarado",
+                "N. Krienke",
+                "J. D. Poplawsky",
+                "A. A. Kohnert",
+                "J. Gigax",
+                "W. -Y. Chen",
+                "M. Li",
+                "Y. Wang",
+                "J. S. Wróbel",
+                "Duc Nguyen-Manh",
+                "J. K. S. Baldwin",
+                "U. Tukac",
+                "E. Aydogan",
+                "S. Fensin",
+                "E. Martinez"
+              ],
+              "published": "2022-10-28",
+              "excerpt": "In the quest of new materials that can withstand severe irradiation and mechanical extremes for advanced applications (e.g. fission reactors, fusion devices, space applications, etc), design, prediction and control of advanced materials beyond current material designs become a paramount goal. Here, though a combined experimental and simulation methodology, the design of a new nanocrystalline refractory high entropy alloy (RHEA) system is established. Compositions of this alloy, assessed under extreme environments and in situ electron-microscopy, revealed both high mechanical strength and thermal stability, grain refinement under heavy ion irradiation and outstanding irradiation resistance to dual-beam irradiation and helium implantation, marked by remarkable resistance to defect generation, growth and coalescence. The experimental and modeling results, which demonstrated notable agreement, can be applied to design and rapidly assess other alloys subjected to extreme environmental conditions.",
+              "distance": 0.3596670627593994
+            },
+            {
+              "arxiv_id": "1801.00263",
+              "title": "Microstructure and elevated-temperature mechanical properties of refractory AlMo0.5NbTa0.5TiZr High Entropy Alloy fabricated by powder metallurgy",
+              "url": "https://arxiv.org/abs/1801.00263v1",
+              "arxiv_url": "https://arxiv.org/abs/1801.00263v1",
+              "authors": [
+                "Yuqiao Li",
+                "Junho Lee",
+                "Byungchul Kang",
+                "Soon Hyung Hong"
+              ],
+              "published": "2017-12-31",
+              "excerpt": "New approaches for the design of alloy systems with multiprincipal elements is recently researched in refractory materials field. However, most research aimed at arc melting process with weakness of coarsening of grains and inhomogeneous microstructure of segregation of elements during the cooling. This study aims to design and fabricate high-entropy alloy with powder metallurgy. In this study, a refractory high entropy alloys with composition near AlMo0.5NbTa0.5TiZr were produced by powder metallurgy. The alloy consists of two body-centered cubic (BCC) phases. One phase was disordered BCC enriched with Mo, Nb and Ta and the other phase was ordered BCC enriched with Al and Zr. The AlMo0.5NbTa0.5TiZr alloy had a density of 7.46g/cm3 and Vickers microhardness of 678HV. Its compressive yield strength was 2466MPa at 298K and 964MPa at 1273K. The properties of the alloy and the beneficial effects from powder metallurgy on the microstructure and properties were outlined.",
+              "distance": 0.3627098798751831
+            },
+            {
+              "arxiv_id": "2310.08850",
+              "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+              "url": "https://arxiv.org/abs/2310.08850v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.08850v1",
+              "authors": [
+                "Hongmin Zhang",
+                "Fanchao Meng",
+                "Haoyan Meng",
+                "Yang Tong",
+                "Peter K. Liaw",
+                "Xiao Yang",
+                "Lei Zhao",
+                "Haizhou Wang",
+                "Yanfei Gao",
+                "Shuying Chen"
+              ],
+              "published": "2023-10-13",
+              "excerpt": "The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date. Systematic TEM analysis unveiled that the cooperation among L12 precipitation, extensive stacking faults (SFs), deformation twins (DTs), immobile Lomer-Cottrell (L-C) locks formed from interactions between SFs and SFs/DTs, hierarchical SFs/DTs networks, as well as hetero-deformation-induced strengthening dominated the plastic deformation at 600 C. Such a unique deformation mechanism enabled extremely high tensile strength and sustained ductility of the HEA at a high temperature.",
+              "distance": 0.3666859269142151
+            },
+            {
+              "arxiv_id": "2107.03202",
+              "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+              "url": "https://arxiv.org/abs/2107.03202v1",
+              "arxiv_url": "https://arxiv.org/abs/2107.03202v1",
+              "authors": [
+                "Fan Yang",
+                "Lilin Wang",
+                "Zhijun Wang",
+                "Qingfeng Wu",
+                "Kexuan Zhou",
+                "Weidong Huang",
+                "Xin Lin"
+              ],
+              "published": "2021-07-07",
+              "excerpt": "With important application prospects, eutectic high entropy alloys have received extensive attention for their excellent strength and ductility in a large temperature range. The excellent casting characteristics of eutectic high entropy alloys make it possible to achieve well manufacturability of selective laser melting. For the first time, we have achieved crack-free eutectic high entropy alloy fabricated by selective laser melting, which has excellent mechanical properties in a wide temperature range of -196 degrees Celsius~760 degrees Celsius due to ultra-fine eutectic lamellar spacing of 150 ~ 200nm and lamellar colony of 2 ~ 6 μm. Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.",
+              "distance": 0.3774557113647461
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "quotation_mismatch",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"1801.00263\",\"quote\":\"Its compressive yield strength was 2466MPa at 298K and 964MPa at 1273K.\"},{\"arxiv_id\":\"2210.16409\",\"quote\":\"revealed both high mechanical strength and thermal stability, ...\"}]}"
+        },
+        {
+          "attempt": 2,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"1801.00263\",\"quote\":\"Its compressive yield strength was 2466MPa at 298K and 964MPa at 1273K.\"},{\"arxiv_id\":\"2210.16409\",\"quote\":\"revealed both high mechanical strength and thermal stability, grain refinement under heavy ion irradiation and outstanding irradiation resistance to dual-beam irradiation and helium implantation, marked by remarkable resistance to defect generation, growth and coalescence.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> Its compressive yield strength was 2466MPa at 298K and 964MPa at 1273K.\n\n[Microstructure and elevated-temperature mechanical properties of refractory AlMo0.5NbTa0.5TiZr High Entropy Alloy fabricated by powder metallurgy](https://arxiv.org/abs/1801.00263v1) (arXiv 1801.00263; published 2017-12-31).\n\n> revealed both high mechanical strength and thermal stability, grain refinement under heavy ion irradiation and outstanding irradiation resistance to dual-beam irradiation and helium implantation, marked by remarkable resistance to defect generation, growth and coalescence.\n\n[An innovative materials design protocol for the development of novel refractory high-entropy alloys for extreme environments](https://arxiv.org/abs/2210.16409v1) (arXiv 2210.16409; published 2022-10-28).",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "An innovative materials design protocol for the development of novel refractory high-entropy alloys for extreme environments",
+          "arxiv_url": "https://arxiv.org/abs/2210.16409v1"
+        },
+        {
+          "title": "Microstructure and elevated-temperature mechanical properties of refractory AlMo0.5NbTa0.5TiZr High Entropy Alloy fabricated by powder metallurgy",
+          "arxiv_url": "https://arxiv.org/abs/1801.00263v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_08",
+      "question": "Look up the crystal structure of Fe in Materials Project, then retrieve abstract evidence about deformation of Fe-containing HEAs.",
+      "category": "mixed",
+      "expected_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Separate pure Fe computed properties from HEA abstract evidence and cite the latter.",
+      "notes": "Pure-element properties are not alloy measurements.",
+      "actual_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_2c63708d-68b5-45e9-9822-8bba68debd48",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-13",
+            "formula": "Fe",
+            "band_gap": 0.0,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Im-3m"
+          }
+        },
+        {
+          "name": "search_papers",
+          "call_id": "fc_e57a7f7c-baff-4fea-bd11-2bcb84653e52",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2103.05567",
+              "title": "Yield strength insensitivity in a dual-phase high entropy alloy after prolonged high temperature annealing",
+              "url": "https://arxiv.org/abs/2103.05567v2",
+              "arxiv_url": "https://arxiv.org/abs/2103.05567v2",
+              "authors": [
+                "Junaid Ahmed",
+                "Matthew Daly"
+              ],
+              "published": "2021-03-09",
+              "excerpt": "Recent studies of FeMnCoCr-based high entropy alloys have demonstrated uncommon deformation behaviors such as transformation-induced plasticity, which were largely believed to be restricted to select families of steels. Coupled with the potential for entropy stabilization of high symmetry phases at high temperatures, this system represents a promising class of materials for structural applications in extreme environments. Yet, transformation-induced plasticity mechanisms are notably sensitive to microstructure parameters and the literature offers examples of deleterious decomposition of high entropy alloys under heat treatment, which raises concerns of resiliency in mechanical performance. Here, we evaluate the evolution of microstructure and mechanical properties of a FeMnCoCr high entropy alloy after prolonged heat treatment at high temperature. Microstructures are found to retain their characteristic austenite/martensite features, with parent face-centered cubic grains partitioned by hexagonal close-packed laths after heat treatment at 1200 C for up to 48 hours. Results of mechanical testing reveal an unusual insensitivity of this alloy to grain growth-induced weakening effects. Namely, the yield strengths of FeMnCoCr samples are observed to remain constant across all heat treatment conditions, despite a near four-fold increase in the grain size. Close examination of post-heat treatment microstructures reveals a dramatic decrease in the inter-lath spacing at longer durations, which segments parent austenite grains. This crystal partitioning counteracts conventional grain growth-induced weakening by introducing additional barriers for dislocation pile-up. These results offer new insights into the mechanical resiliency of this transformation-induced plasticity high entropy alloy under prolonged high temperature heat treatment.",
+              "distance": 0.3929744362831116
+            },
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.43256258964538574
+            },
+            {
+              "arxiv_id": "2507.13218",
+              "title": "Phase transitions of eutectic high entropy alloy AlCoCrFeNi2.1 under shock compression",
+              "url": "https://arxiv.org/abs/2507.13218v2",
+              "arxiv_url": "https://arxiv.org/abs/2507.13218v2",
+              "authors": [
+                "Sophie E. Parsons",
+                "Kento Katagiri",
+                "Hangman Chen",
+                "Anirudh Hari",
+                "Sara J. Irvine",
+                "Dorian Luccioni",
+                "Rayen Lin",
+                "Laura E. Madril",
+                "Tharun Reddy",
+                "William J. McKinney",
+                "Jie Ren",
+                "Wuxian Yang",
+                "Norimasa Ozaki",
+                "Alexis Amouretti",
+                "Ryosuke Kodama",
+                "Hirotaka Nakamura",
+                "Yusuke Nakanishi",
+                "Masato Ota",
+                "Yusuke Seto",
+                "Sota Takagi",
+                "Takuo Okuchi",
+                "Yuhei Umeda",
+                "Yuichi Inubushi",
+                "Kohei Miyanishi",
+                "Keiichi Sueda",
+                "Tadashi Togashi",
+                "Makina Yabashi",
+                "Toshinori Yabuuchi",
+                "Wanghui Li",
+                "Paul E. Specht",
+                "Penghui Cao",
+                "Wen Chen",
+                "Yogesh K. Vohra",
+                "Leora Dresselhaus-Marais"
+              ],
+              "published": "2025-07-17",
+              "excerpt": "High entropy alloys (HEAs) are a new class of metals that exhibit unique mechanical performance. Among HEAs, additively manufactured eutectic high entropy alloys (AM-EHEAs) have recently emerged as candidate materials for use in extreme conditions due to their simultaneous high strength and ductility. However, the deformation and structural evolution of AM-EHEAs under conditions of high pressure have not been well characterized, limiting their use in extreme applications. We present dynamic compression experiments and molecular dynamics simulations studying the structural evolution of AM-EHEA AlCoCrFeNi2.1 when compressed to pressures up to 400 GPa. Our in-situ X-ray diffraction measurements capture the appearance of fcc and bcc phases at different pressure conditions, with pure- and mixed-phase regions. Understanding the phase stability and structural evolution of the AM EHEA offers new insights to guide the development of high-performance complex materials for extreme conditions.",
+              "distance": 0.46173161268234253
+            },
+            {
+              "arxiv_id": "2310.12078",
+              "title": "Deformation Mechanisms in High Entropy Alloys: A Minireview of Short-Range Order Effects",
+              "url": "https://arxiv.org/abs/2310.12078v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.12078v1",
+              "authors": [
+                "Novin Rasooli",
+                "Wei Chen",
+                "Matthew Daly"
+              ],
+              "published": "2023-10-18",
+              "excerpt": "The complex atomic scale structure of high entropy alloys presents new opportunities to expand the deformation theories of mechanical metallurgy. In this regard, solute-defect interactions have emerged as critical piece in elucidating the operation of deformation mechanisms. While notable progress has been made in understanding solute-defect interactions for random solute arrangements, recent interest in high entropy alloys with short-range order adds a new layer of structural complexity for which a cohesive picture has yet to emerge. To this end, this minireview synthesizes the current understanding of short-range order effects on defect behavior through an examination of the key recent literature. This analysis centers on the nanoscale metallurgy of deformation mechanisms, with the order-induced changes to the relevant defect energy landscapes serving as a touchstone for discussion. The topics reviewed include dislocation-mediated strengthening, twinning and phase transformation-based mechanisms, and vacancy-mediated processes. This minireview concludes with remarks on current challenges and opportunities for future efforts.",
+              "distance": 0.4654701352119446
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2103.05567\",\"quote\":\"Recent studies of FeMnCoCr-based high entropy alloys have demonstrated uncommon deformation behaviors such as transformation‑induced plasticity, which were largely believed to be restricted to select families of steels.\"},{\"arxiv_id\":\"2103.05567\",\"quote\":\"Results of mechanical testing reveal an unusual insensitivity of this alloy to grain growth‑induced weakening effects. Namely, the yield strengths of FeMnCoCr samples are observed to remain constant across all heat treatment conditions, despite a near four‑fold increase in the grain size.\"},{\"arxiv_id\":\"2409.20368\",\"quote\":\"An equimolar NiCoFeCrGa high entropy alloy having dual‑phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties.\"},{\"arxiv_id\":\"2409.20368\",\"quote\":\"Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> Recent studies of FeMnCoCr-based high entropy alloys have demonstrated uncommon deformation behaviors such as transformation-induced plasticity, which were largely believed to be restricted to select families of steels.\n\n[Yield strength insensitivity in a dual-phase high entropy alloy after prolonged high temperature annealing](https://arxiv.org/abs/2103.05567v2) (arXiv 2103.05567; published 2021-03-09).\n\n> Results of mechanical testing reveal an unusual insensitivity of this alloy to grain growth-induced weakening effects. Namely, the yield strengths of FeMnCoCr samples are observed to remain constant across all heat treatment conditions, despite a near four-fold increase in the grain size.\n\n[Yield strength insensitivity in a dual-phase high entropy alloy after prolonged high temperature annealing](https://arxiv.org/abs/2103.05567v2) (arXiv 2103.05567; published 2021-03-09).\n\n> An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties.\n\n[Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy](https://arxiv.org/abs/2409.20368v1) (arXiv 2409.20368; published 2024-09-30).\n\n> Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction.\n\n[Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy](https://arxiv.org/abs/2409.20368v1) (arXiv 2409.20368; published 2024-09-30).\n\nMaterials Project computed, structure-specific results (not necessarily experimental):\n\n```json\n[\n  {\n    \"material_id\": \"mp-13\",\n    \"formula\": \"Fe\",\n    \"band_gap\": 0.0,\n    \"energy_above_hull\": 0.0,\n    \"crystal_system\": \"Cubic\",\n    \"space_group\": \"Im-3m\"\n  }\n]\n```",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "Yield strength insensitivity in a dual-phase high entropy alloy after prolonged high temperature annealing",
+          "arxiv_url": "https://arxiv.org/abs/2103.05567v2"
+        },
+        {
+          "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2409.20368v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_09",
+      "question": "Give the Materials Project crystal system of Ni and find abstract evidence about mechanical behavior of Ni-containing high-entropy alloys.",
+      "category": "mixed",
+      "expected_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Keep Ni lookup results distinct from alloy literature, with real citations.",
+      "notes": "Tests using both tools without claiming pure Ni represents an HEA.",
+      "actual_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_fa44ad0e-61a6-4a0a-9a34-f33387965e7d",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-23",
+            "formula": "Ni",
+            "band_gap": 0.0,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Fm-3m"
+          }
+        },
+        {
+          "name": "search_papers",
+          "call_id": "fc_53453872-dd9c-4cf6-8c32-2c72067348d8",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.34459471702575684
+            },
+            {
+              "arxiv_id": "2310.08850",
+              "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+              "url": "https://arxiv.org/abs/2310.08850v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.08850v1",
+              "authors": [
+                "Hongmin Zhang",
+                "Fanchao Meng",
+                "Haoyan Meng",
+                "Yang Tong",
+                "Peter K. Liaw",
+                "Xiao Yang",
+                "Lei Zhao",
+                "Haizhou Wang",
+                "Yanfei Gao",
+                "Shuying Chen"
+              ],
+              "published": "2023-10-13",
+              "excerpt": "The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date. Systematic TEM analysis unveiled that the cooperation among L12 precipitation, extensive stacking faults (SFs), deformation twins (DTs), immobile Lomer-Cottrell (L-C) locks formed from interactions between SFs and SFs/DTs, hierarchical SFs/DTs networks, as well as hetero-deformation-induced strengthening dominated the plastic deformation at 600 C. Such a unique deformation mechanism enabled extremely high tensile strength and sustained ductility of the HEA at a high temperature.",
+              "distance": 0.3912389278411865
+            },
+            {
+              "arxiv_id": "2403.16241",
+              "title": "AB5 type multicomponent TiVCoNiMn2 high-entropy alloy",
+              "url": "https://arxiv.org/abs/2403.16241v1",
+              "arxiv_url": "https://arxiv.org/abs/2403.16241v1",
+              "authors": [
+                "Abhishek Kumar",
+                "M. A. Shaz",
+                "N. K. Mukhopadhyay",
+                "Thakur Prasad Yadav"
+              ],
+              "published": "2024-03-24",
+              "excerpt": "Recent theoretical and practical research has focused on multi-component High Entropy Alloys (HEAs), which have superior mechanical and functional properties than standard alloys based on a single major element, thereby establishing a new field. A multi-component HEA contains five or more primary elements at concentrations ranging from 5 to 35 atomic percent. We examined the microstructure and mechanical properties of TiVCoNiMn2 HEA. The mixing enthalpy and other thermodynamic parameters were determined using Meidma's model. TiVCoNiMn2 exhibits a mixing enthalpy of -15.6 kJ/mol and an atomic radius mismatch of approximately 10.03%. HEA is derived from both hydride and non-hydride-producing elements. This could be a useful hydrogen storage material. The hydrogen absorption/desorption capabilities of these HEAs are promising.",
+              "distance": 0.3947458267211914
+            },
+            {
+              "arxiv_id": "2303.09161",
+              "title": "Quasi-localized modes in crystalline high entropy alloys",
+              "url": "https://arxiv.org/abs/2303.09161v1",
+              "arxiv_url": "https://arxiv.org/abs/2303.09161v1",
+              "authors": [
+                "Silvia Bonfanti",
+                "Roberto Guerra",
+                "Rene Alvarez-Donado",
+                "Pawel Sobkowicz",
+                "Stefano Zapperi",
+                "Mikko Alava"
+              ],
+              "published": "2023-03-16",
+              "excerpt": "High Entropy Alloys (HEAs) are designed by mixing multiple metallic species in nearly the same amount to obtain crystalline or amorphous materials with exceptional mechanical properties. Here we use molecular dynamics simulations to investigate the role of positional and compositional disorder in determining the low-frequency vibrational properties of CrMnFeCoNi HEAs. Our results show that the expected dependence of the density of states on the frequency as $D(ω)\\simω^4$ is recovered for amorphous HEAs and is also observed for partially crystallized alloys with deviations that depend on the degree of crystallization. We find that the quasi-localized vibrations are still visible in crystalline HEAs, albeit suppressed compared to the corresponding amorphous alloys. Our work offers a unified perspective to describe HEA mechanical properties in terms of their vibrational density of states.",
+              "distance": 0.4378499984741211
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "unknown_arxiv_id",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"mp-23\",\"quote\":\"\\\"crystal_system\\\": \\\"Cubic\\\"\"},{\"arxiv_id\":\"2409.20368\",\"quote\":\"An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.\"},{\"arxiv_id\":\"2310.08850\",\"quote\":\"The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date.\"}]}"
+        },
+        {
+          "attempt": 2,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2409.20368\",\"quote\":\"An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen.\"},{\"arxiv_id\":\"2310.08850\",\"quote\":\"The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen.\n\n[Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy](https://arxiv.org/abs/2409.20368v1) (arXiv 2409.20368; published 2024-09-30).\n\n> The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens.\n\n[An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy](https://arxiv.org/abs/2310.08850v1) (arXiv 2310.08850; published 2023-10-13).\n\nMaterials Project computed, structure-specific results (not necessarily experimental):\n\n```json\n[\n  {\n    \"material_id\": \"mp-23\",\n    \"formula\": \"Ni\",\n    \"band_gap\": 0.0,\n    \"energy_above_hull\": 0.0,\n    \"crystal_system\": \"Cubic\",\n    \"space_group\": \"Fm-3m\"\n  }\n]\n```",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2409.20368v1"
+        },
+        {
+          "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2310.08850v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_10",
+      "question": "Compare the computed band gaps of Si and Ge, and separately retrieve evidence about HEA strength and ductility.",
+      "category": "mixed",
+      "expected_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "literature_expected": true,
+      "expected_grounding_behavior": "Keep the two requests separate; quote literature and label computed values.",
+      "notes": "Explicit independent tasks; no scientific relationship is implied.",
+      "actual_tools": [
+        "get_material",
+        "search_papers"
+      ],
+      "tool_calls": [
+        {
+          "name": "get_material",
+          "call_id": "fc_6d7cc822-b83b-499d-8c64-72911fb277ca",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-149",
+            "formula": "Si",
+            "band_gap": 0.61,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Fd-3m"
+          }
+        },
+        {
+          "name": "get_material",
+          "call_id": "fc_6e01d535-e388-4dac-b654-591cc43f5894",
+          "status": "ok",
+          "result": {
+            "material_id": "mp-32",
+            "formula": "Ge",
+            "band_gap": 0.0,
+            "energy_above_hull": 0.0,
+            "crystal_system": "Cubic",
+            "space_group": "Fd-3m"
+          }
+        },
+        {
+          "name": "search_papers",
+          "call_id": "fc_e8fef191-c16f-482e-9262-fc4cfdc5772c",
+          "status": "ok",
+          "result": [
+            {
+              "arxiv_id": "2310.08850",
+              "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+              "url": "https://arxiv.org/abs/2310.08850v1",
+              "arxiv_url": "https://arxiv.org/abs/2310.08850v1",
+              "authors": [
+                "Hongmin Zhang",
+                "Fanchao Meng",
+                "Haoyan Meng",
+                "Yang Tong",
+                "Peter K. Liaw",
+                "Xiao Yang",
+                "Lei Zhao",
+                "Haizhou Wang",
+                "Yanfei Gao",
+                "Shuying Chen"
+              ],
+              "published": "2023-10-13",
+              "excerpt": "The present work reported a novel L12-strengthening NiCoCrAlTi high entropy alloy (HEA) with an outstanding synergy of tensile strength and ductility at both ambient and high temperatures. Transmission electron microscopy (TEM) characterization revealed a high density of rod-like and spheroidal L12 precipitates distributing in the micro/nanograins and non-recrystallized regions in the annealed specimens. The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date. Systematic TEM analysis unveiled that the cooperation among L12 precipitation, extensive stacking faults (SFs), deformation twins (DTs), immobile Lomer-Cottrell (L-C) locks formed from interactions between SFs and SFs/DTs, hierarchical SFs/DTs networks, as well as hetero-deformation-induced strengthening dominated the plastic deformation at 600 C. Such a unique deformation mechanism enabled extremely high tensile strength and sustained ductility of the HEA at a high temperature.",
+              "distance": 0.37445420026779175
+            },
+            {
+              "arxiv_id": "2102.09055",
+              "title": "Mechanical behavior of high-entropy alloys: A review",
+              "url": "https://arxiv.org/abs/2102.09055v1",
+              "arxiv_url": "https://arxiv.org/abs/2102.09055v1",
+              "authors": [
+                "Yuanyuan Shang",
+                "Jamieson Brechtl",
+                "Claudio Psitidda",
+                "Peter K. Liaw"
+              ],
+              "published": "2021-02-17",
+              "excerpt": "High-entropy alloys (HEAs) are materials that consist of equimolar or near-equimolar multiple principal components but tend to form single phases, which is a new research topic in the field of metallurgy, have attracted extensive attention in the past decade. The HEAs families contain the face-centered-cubic (fcc), body-centered-cubic (bcc), and hexagonal-close-packed (hcp)-structured HEAs. On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs. Scientists have explored in this direction since the advent of HEAs. On the other hand, the pursuit of high strength and good plasticity is the critical research issue of materials. Hence, strengthening of HEAs is a crucial issue. Recently, many articles are focusing on the strengthening strategies of HEAs[1-14]. In this chapter, we reviewed the recent work on the room-temperature elastic properties and mechanical behavior of HEAs, including the mechanisms behind the plastic deformation of HEAs at both low and high temperatures. Furthermore, the present work examined the strengthening strategies of HEAs, e.g. strain hardening, grain-boundary strengthening, solid-solution strengthening, and particle strengthening. The fatigue, creep, and fracture properties were briefly introduced. Lastly, the future scientific issues and challenges of HEAs were discussed.",
+              "distance": 0.39867204427719116
+            },
+            {
+              "arxiv_id": "2107.03202",
+              "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+              "url": "https://arxiv.org/abs/2107.03202v1",
+              "arxiv_url": "https://arxiv.org/abs/2107.03202v1",
+              "authors": [
+                "Fan Yang",
+                "Lilin Wang",
+                "Zhijun Wang",
+                "Qingfeng Wu",
+                "Kexuan Zhou",
+                "Weidong Huang",
+                "Xin Lin"
+              ],
+              "published": "2021-07-07",
+              "excerpt": "With important application prospects, eutectic high entropy alloys have received extensive attention for their excellent strength and ductility in a large temperature range. The excellent casting characteristics of eutectic high entropy alloys make it possible to achieve well manufacturability of selective laser melting. For the first time, we have achieved crack-free eutectic high entropy alloy fabricated by selective laser melting, which has excellent mechanical properties in a wide temperature range of -196 degrees Celsius~760 degrees Celsius due to ultra-fine eutectic lamellar spacing of 150 ~ 200nm and lamellar colony of 2 ~ 6 μm. Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.",
+              "distance": 0.41048556566238403
+            },
+            {
+              "arxiv_id": "2409.20368",
+              "title": "Micromechanics reveal strain rate dependent transition between dislocation mechanisms in a dual phase high entropy alloy",
+              "url": "https://arxiv.org/abs/2409.20368v1",
+              "arxiv_url": "https://arxiv.org/abs/2409.20368v1",
+              "authors": [
+                "Szilvia Kalácska",
+                "Amit Sharma",
+                "Rajaprakash Ramachandramoorthy",
+                "Ádám Vida",
+                "Florian Tropper",
+                "Renato Pero",
+                "Damian Frey",
+                "Xavier Maeder",
+                "Johann Michler",
+                "Péter Dusán Ispánovity",
+                "Guillaume Kermouche"
+              ],
+              "published": "2024-09-30",
+              "excerpt": "An equimolar NiCoFeCrGa high entropy alloy having dual-phase homogeneous components was studied, where the constituent phases exhibit distinct mechanical properties. Micropillars with various diameters were created from two differently heat treated samples, then they were compressed at slow strain rates, that revealed the material's limited sensitivity to size. On the other hand, increased strain rate sensitivity at high deformation speeds was observed, that differs substantially depending on the phase composition of the specimen. Dislocations within the two phases were studied by high resolution transmission electron microscopy and high angular resolution electron backscatter diffraction. The performed chemical analysis confirmed that slow cooling during casting create Cr-rich precipitates, that have significant impact on the global strength of the material.",
+              "distance": 0.41424882411956787
+            }
+          ]
+        }
+      ],
+      "evidence_selection": [
+        {
+          "attempt": 1,
+          "reason": "successful_grounded_evidence",
+          "response": "{\"evidence\":[{\"arxiv_id\":\"2310.08850\",\"quote\":\"The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date.\"},{\"arxiv_id\":\"2107.03202\",\"quote\":\"Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.\"},{\"arxiv_id\":\"2102.09055\",\"quote\":\"On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs.\"}]}"
+        }
+      ],
+      "evidence_selection_outcome": "successful_grounded_evidence",
+      "final_answer": "The retrieved abstract corpus does not provide enough evidence for details beyond the passages quoted below. These are abstracts, not full papers.\n\n> The tremendously high yield stress, ultimate tensile stress (UTS), and ductility of the HEA at 600 C were ~1060 MPa, 1271 MPa, and 25%, respectively, which were significantly superior to most reported HEAs and Co- and Ni-based superalloys to date.\n\n[An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy](https://arxiv.org/abs/2310.08850v1) (arXiv 2310.08850; published 2023-10-13).\n\n> Specifically, the room temperature tensile strength exceeds 1400MPa and the elongation is more than 20%, significantly improved compared with those manufactured by other techniques with lower cooling rate.\n\n[Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting](https://arxiv.org/abs/2107.03202v1) (arXiv 2107.03202; published 2021-07-07).\n\n> On one hand, mechanical properties, e.g. hardness, strength, ductility, fatigue, and elastic moduli, are essential for practical applications of HEAs.\n\n[Mechanical behavior of high-entropy alloys: A review](https://arxiv.org/abs/2102.09055v1) (arXiv 2102.09055; published 2021-02-17).\n\nMaterials Project computed, structure-specific results (not necessarily experimental):\n\n```json\n[\n  {\n    \"material_id\": \"mp-149\",\n    \"formula\": \"Si\",\n    \"band_gap\": 0.61,\n    \"energy_above_hull\": 0.0,\n    \"crystal_system\": \"Cubic\",\n    \"space_group\": \"Fd-3m\"\n  },\n  {\n    \"material_id\": \"mp-32\",\n    \"formula\": \"Ge\",\n    \"band_gap\": 0.0,\n    \"energy_above_hull\": 0.0,\n    \"crystal_system\": \"Cubic\",\n    \"space_group\": \"Fd-3m\"\n  }\n]\n```",
+      "tool_selection_matched": true,
+      "literature_citations_present": true,
+      "citation_check_passed": true,
+      "matched_citations": [
+        {
+          "title": "An unprecedented synergy of high-temperature tensile strength and ductility in a NiCoCrAlTi high-entropy alloy",
+          "arxiv_url": "https://arxiv.org/abs/2310.08850v1"
+        },
+        {
+          "title": "Mechanical behavior of high-entropy alloys: A review",
+          "arxiv_url": "https://arxiv.org/abs/2102.09055v1"
+        },
+        {
+          "title": "Ultra strong and ductile eutectic high entropy alloy fabricated by selective laser melting",
+          "arxiv_url": "https://arxiv.org/abs/2107.03202v1"
+        }
+      ],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_11",
+      "question": "What is its band gap?",
+      "category": "ambiguous",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Ask which material the user means; do not guess a formula.",
+      "notes": "No prior conversation is supplied.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "I’m sorry, but “its” does not specify a chemical formula. I can’t look up a band‑gap without a valid formula. Please provide the exact chemical formula you’d like information on.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_12",
+      "question": "Which alloy is best?",
+      "category": "ambiguous",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Ask for the application, candidate alloys, and criteria.",
+      "notes": "Expected policy is clarification before lookup.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "I’m happy to help, but “best” depends on what you need the alloy for. Could you let me know which property or application you’re interested in (e.g., high‑temperature strength, corrosion resistance, lightweight, specific HEA composition, etc.)? That way I can provide a more useful recommendation.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_13",
+      "question": "Look up XYZ123 in Materials Project.",
+      "category": "invalid_material",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Reject the obviously invalid chemical formula directly without a tool. Do not invent properties or claim Materials Project has no entry unless an actual lookup was performed.",
+      "notes": "Direct invalid-input rejection is expected; no database lookup is needed.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "The string “XYZ123” is not a valid chemical formula, so I can’t look it up in the Materials Project.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_14",
+      "question": "What is the Materials Project band gap of NotARealMaterial?",
+      "category": "invalid_material",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Reject the obviously invalid chemical formula directly without a tool. Do not invent properties or claim Materials Project has no entry unless an actual lookup was performed.",
+      "notes": "Direct invalid-input rejection is expected; no database lookup is needed.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "The input “NotARealMaterial” is not a valid chemical formula.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_15",
+      "question": "Write a short birthday greeting for my friend.",
+      "category": "out_of_domain",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Do not fabricate material data or literature citations.",
+      "notes": "A brief answer or scope clarification is acceptable.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "Happy birthday! 🎉 May your day be filled with joy, laughter, and wonderful memories. Wishing you an amazing year ahead!",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    },
+    {
+      "id": "case_16",
+      "question": "What is 17 multiplied by 6?",
+      "category": "out_of_domain",
+      "expected_tools": [],
+      "literature_expected": false,
+      "expected_grounding_behavior": "Answer without materials tools or scientific citations.",
+      "notes": "Arithmetic control; expected answer 102 is reviewed manually.",
+      "actual_tools": [],
+      "tool_calls": [],
+      "evidence_selection": [],
+      "evidence_selection_outcome": "not_attempted",
+      "final_answer": "17 multiplied by 6 equals 102.",
+      "tool_selection_matched": true,
+      "literature_citations_present": false,
+      "citation_check_passed": null,
+      "matched_citations": [],
+      "execution_error": null,
+      "manual_grounding_review": "not_scored"
+    }
+  ],
+  "finished_at": "2026-09-19T00:34:51.211206+00:00"
+}

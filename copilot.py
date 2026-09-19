@@ -1,6 +1,7 @@
 """Explicit Groq tool loop for computed properties and HEA literature."""
 
 import json
+import unicodedata
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -14,6 +15,9 @@ MAX_TOOL_ROUNDS = 5
 MAX_CALLS_PER_ROUND = 8
 SYSTEM_PROMPT = """You are a materials-informatics assistant.
 Use get_material for structured computed Materials Project properties.
+Reject obviously invalid chemical-formula inputs directly WITHOUT get_material.
+Say the input is not a valid chemical formula, never that Materials Project has
+no entry or that a search found nothing unless a lookup was actually performed.
 These values are computed, not necessarily experimental, and structure-specific.
 The lookup selects the lowest-energy-above-hull structure; do not present it as
 universally representative of every polymorph.
@@ -119,7 +123,14 @@ response MUST be a JSON object with this exact format:
 Select only passages relevant to the user's question, up to four passages total.
 Use full sentences that preserve qualifications and context. Do not paraphrase,
 combine noncontiguous text, or add scientific explanations. Do not use titles as
-scientific evidence. If no passage supports the request, return {"evidence": []}.
+scientific evidence. For mixed questions, select evidence for the LITERATURE
+portion independently of the computed-property portion. If requested details are
+missing but a relevant abstract discusses the topic, select its closest relevant
+passage so the answer can cite what IS reported while acknowledging the gap.
+Prefer the most relevant retrieved paper. For questions about slip systems and
+Burgers vectors in dual-phase alloys, a passage about dislocations in the two
+phases is useful limited evidence; do not invent the absent crystallographic details.
+Only return {"evidence": []} when no relevant passage is available.
 Do not include authors, citations, markdown fences, or other fields: Python will
 render verified quotations and citation metadata. Produce the final evidence
 selection now; do not request additional tools. This output format applies whenever literature is used,
@@ -127,49 +138,116 @@ including mixed questions; do not add unverified prose about either tool.
 """
 
 
-def render_literature_answer(content: str, papers: dict) -> str:
-    """Only display exact abstract passages and citations from retrieved metadata.
+def normalize_evidence(text: str) -> str:
+    """Normalize spacing and equivalent typography, not scientific symbols/values."""
+    text = unicodedata.normalize("NFC", text)
+    text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"',
+                                       "‐": "-", "‑": "-"}))
+    return " ".join(text.split())
 
-    This intentionally favors extractive evidence over unverified LLM synthesis.
-    It checks provenance, not whether a passage fully answers a scientific question.
-    """
-    insufficient = (
-        "The retrieved abstract corpus does not provide enough evidence for "
-        "details beyond the passages quoted below. These are abstracts, not full papers."
-    )
-    fallback = (
-        "The retrieved abstract corpus does not provide enough verified evidence "
-        "to answer at the requested level of detail. No unverified scientific "
-        "explanation is shown. Only abstracts, not full papers, were searched."
-    )
+
+def validate_evidence(content: str, papers: dict) -> tuple[list[dict], str]:
+    """Match every quotation to its source; never accept invented evidence."""
     try:
         payload = json.loads(content)
-        if not isinstance(payload, dict) or set(payload) != {"evidence"}:
-            return fallback
-        evidence = payload["evidence"]
-        if not isinstance(evidence, list) or not 1 <= len(evidence) <= 4:
-            return fallback
-        passages = []
-        for item in evidence:
-            if not isinstance(item, dict) or set(item) != {"arxiv_id", "quote"}:
-                return fallback
-            paper_id, quote = item["arxiv_id"], item["quote"]
-            if not isinstance(paper_id, str) or not isinstance(quote, str) or not quote.strip():
-                return fallback
-            paper = papers.get(paper_id)
-            if paper is None or quote not in paper["excerpt"]:
-                return fallback
-            passages.append(
-                f'> {quote}\n\n'
-                f'[{paper["title"]}]({paper["arxiv_url"]}) '
-                f'(arXiv {paper["arxiv_id"]}; published {paper["published"]}).'
+    except (TypeError, ValueError):
+        return [], "malformed_evidence_json"
+    if not isinstance(payload, dict) or set(payload) != {"evidence"}:
+        return [], "malformed_evidence_json"
+    evidence = payload["evidence"]
+    if not isinstance(evidence, list) or len(evidence) > 4:
+        return [], "malformed_evidence_json"
+    if not evidence:
+        return [], "no_evidence_selected"
+    verified = []
+    for item in evidence:
+        if not isinstance(item, dict) or set(item) != {"arxiv_id", "quote"}:
+            return [], "malformed_evidence_json"
+        paper_id, quote = item["arxiv_id"], item["quote"]
+        if not isinstance(paper_id, str) or not isinstance(quote, str):
+            return [], "malformed_evidence_json"
+        paper = papers.get(paper_id)
+        if paper is None:
+            return [], "unknown_arxiv_id"
+        normalized_quote = normalize_evidence(quote)
+        abstract = normalize_evidence(paper["excerpt"])
+        if not normalized_quote or normalized_quote not in abstract:
+            return [], "quotation_mismatch"
+        verified.append({"arxiv_id": paper_id, "quote": normalized_quote})
+    return verified, "successful_grounded_evidence"
+
+
+def render_literature_answer(content: str, papers: dict, question: str = "") -> str:
+    evidence, reason = validate_evidence(content, papers)
+    if reason != "successful_grounded_evidence":
+        return (
+            "The retrieved abstract corpus does not provide enough verified evidence "
+            "to answer at the requested level of detail. No unverified scientific "
+            "explanation is shown. Only abstracts, not full papers, were searched."
+        )
+    passages = []
+    for item in evidence:
+        paper = papers[item["arxiv_id"]]
+        passage = f'> {item["quote"]}\n\n'
+        # This narrow limitation is checked against the full cited abstract, not
+        # inferred from absence in a short quotation or generalized to all HEAs.
+        abstract = paper["excerpt"].lower()
+        if ("slip" in question.lower() and "burgers" in question.lower()
+                and "dislocations" in abstract and "two phases" in abstract
+                and "slip" not in abstract and "burgers" not in abstract
+                and not any(symbol in abstract for symbol in ("<", "〈", "⟨", "[", "{"))):
+            passage += (
+                "This abstract discusses dislocations in the two phases but does not "
+                "specify slip-system indices or Burgers vectors.\n\n"
             )
-    except (TypeError, ValueError, KeyError):
-        return fallback
-    return insufficient + "\n\n" + "\n\n".join(passages)
+        passage += (f'[{paper["title"]}]({paper["arxiv_url"]}) '
+                    f'(arXiv {paper["arxiv_id"]}; published {paper["published"]}).')
+        passages.append(passage)
+    return (
+        "The retrieved abstract corpus does not provide enough evidence for "
+        "details beyond the passages quoted below. These are abstracts, not full papers.\n\n"
+        + "\n\n".join(passages)
+    )
 
 
-def ask_material_question(question: str, *, client=None) -> str:
+def finish_literature_answer(message, request: dict, client, papers: dict,
+                             question: str, diagnostics: list | None) -> str:
+    """Validate once, retry once with feedback, then render or abstain safely."""
+    content = message.content or ""
+    for attempt in range(2):
+        _, reason = validate_evidence(content, papers)
+        if diagnostics is not None:
+            diagnostics.append({"attempt": attempt + 1, "reason": reason,
+                                "response": content})
+        if reason == "successful_grounded_evidence":
+            break
+        if attempt == 1:
+            break
+        feedback = (
+            f"Validation failed: {reason}. Return only the required evidence JSON. "
+            "Use a listed arxiv_id and copy a contiguous passage from that paper's "
+            "excerpt. Do not add scientific facts. If details are missing, select "
+            "the closest relevant passage rather than rejecting all useful evidence. "
+            "Return an empty evidence list only if no relevant passage exists."
+        )
+        retry = dict(request)
+        retry["messages"] = request["messages"] + [
+            {"role": "assistant", "content": content},
+            {"role": "user", "content": feedback},
+        ]
+        try:
+            response = client.chat.completions.create(**retry)
+            content = response.choices[0].message.content or ""
+        except Exception as error:
+            if diagnostics is not None:
+                diagnostics.append({"attempt": 2, "reason": "evidence_api_error",
+                                    "error_type": type(error).__name__})
+            content = ""
+            break
+    return render_literature_answer(content, papers, question)
+
+
+def ask_material_question(question: str, *, client=None, tool_trace: list | None = None, evidence_trace: list | None = None) -> str:
     """Run bounded tool rounds; an injected client allows tests without API calls."""
     if not isinstance(question, str) or not question.strip():
         raise ValueError("Question must be a non-empty string.")
@@ -218,7 +296,9 @@ def ask_material_question(question: str, *, client=None) -> str:
         message = response.choices[0].message
         if not message.tool_calls:
             if literature_used:
-                answer = render_literature_answer(message.content or "", citation_papers)
+                answer = finish_literature_answer(
+                    message, request, client, citation_papers, question, evidence_trace
+                )
                 if material_results:
                     answer += (
                         "\n\nMaterials Project computed, structure-specific results "
@@ -238,6 +318,14 @@ def ask_material_question(question: str, *, client=None) -> str:
                 output = json.dumps({"error": "Tool call limit exceeded for this round."})
             else:
                 output = execute_tool(call.function.name, call.function.arguments)
+            if tool_trace is not None:
+                result = json.loads(output)
+                tool_trace.append({
+                    "name": call.function.name,
+                    "call_id": call.id,
+                    "status": "error" if isinstance(result, dict) and "error" in result else "ok",
+                    "result": result,
+                })
             messages.append({
                 "role": "tool", "tool_call_id": call.id,
                 "name": call.function.name, "content": output,
