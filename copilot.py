@@ -287,7 +287,10 @@ def ask_material_question(question: str, *, client=None, tool_trace: list | None
                 {"role": "system", "content": LITERATURE_RESPONSE_PROMPT},
                 {"role": "user", "content": json.dumps({
                     "question": question,
-                    "tool_results": [m for m in messages if m["role"] == "tool"],
+                    "tool_results": [
+                        m for m in messages
+                        if m["role"] == "tool" and m.get("name") == "search_papers"
+                    ],
                 }, ensure_ascii=False)},
             ]
         else:
@@ -300,11 +303,40 @@ def ask_material_question(question: str, *, client=None, tool_trace: list | None
                     message, request, client, citation_papers, question, evidence_trace
                 )
                 if material_results:
+                    material_lines = []
+
+                    for record in material_results:
+                        details = []
+
+                        if record.get("formula"):
+                            details.append(str(record["formula"]))
+
+                        if record.get("crystal_system"):
+                            details.append(
+                                f'computed crystal system {record["crystal_system"]}'
+                            )
+
+                        if record.get("space_group"):
+                            details.append(
+                                f'space group {record["space_group"]}'
+                            )
+
+                        if record.get("band_gap") is not None:
+                            details.append(
+                                f'band gap {record["band_gap"]} eV'
+                            )
+
+                        if record.get("material_id"):
+                            details.append(
+                                f'Materials Project {record["material_id"]}'
+                            )
+
+                        material_lines.append(", ".join(details) + ".")
+
                     answer += (
                         "\n\nMaterials Project computed, structure-specific results "
-                        "(not necessarily experimental):\n\n```json\n"
-                        + json.dumps(material_results, indent=2, ensure_ascii=False)
-                        + "\n```"
+                        "(not necessarily experimental):\n\n"
+                        + "\n".join(material_lines)
                     )
                 return answer
             return message.content or "The model returned no answer. Please try again."

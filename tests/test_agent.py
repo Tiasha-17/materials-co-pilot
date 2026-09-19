@@ -87,8 +87,8 @@ def test_multiple_calls_and_repeated_rounds(mocked_tools):
         message(content="Final answer"),
     )
     assert "verified evidence" in copilot.ask_material_question("Question", client=client)
-    assert [m["tool_call_id"] for m in tool_results(history[1])] == ["a", "b"]
-    assert [m["tool_call_id"] for m in tool_results(history[2])] == ["a", "b", "c"]
+    assert [m["tool_call_id"] for m in tool_results(history[1])] == ["b"]
+    assert [m["tool_call_id"] for m in tool_results(history[2])] == ["b", "c"]
     assert mocked_tools[1].call_count == 2
     assert history[0]["tool_choice"] == "auto"
     assert all(h["tool_choice"] == "none" for h in history[1:])
@@ -116,15 +116,38 @@ def test_bad_calls_return_errors_and_continue(name, args, mocked_tools):
 
 def test_failure_does_not_skip_other_calls(mocked_tools):
     mocked_tools[0].side_effect = RuntimeError("secret request details")
-    client, history = client_for(message([
-        call("get_material", '{"formula":"TiO2"}', "a"),
-        call("search_papers", '{"query":"HEA"}', "b"),
-    ]), message(content="Partial answer"))
-    assert "verified evidence" in copilot.ask_material_question("Question", client=client)
+
+    client, history = client_for(
+        message([
+            call("get_material", '{"formula":"TiO2"}', "a"),
+            call("search_papers", '{"query":"HEA"}', "b"),
+        ]),
+        message(content="Partial answer"),
+    )
+
+    trace = []
+
+    assert "verified evidence" in copilot.ask_material_question(
+        "Question",
+        client=client,
+        tool_trace=trace,
+    )
+
+    assert [item["name"] for item in trace] == [
+        "get_material",
+        "search_papers",
+    ]
+
+    assert trace[0]["status"] == "error"
+    assert "secret" not in json.dumps(trace[0]["result"])
+
+    assert trace[1]["status"] == "ok"
+    assert isinstance(trace[1]["result"], list)
+
     results = tool_results(history[1])
-    assert "error" in json.loads(results[0]["content"])
-    assert "secret" not in results[0]["content"]
-    assert isinstance(json.loads(results[1]["content"]), list)
+    assert len(results) == 1
+    assert results[0]["name"] == "search_papers"
+
     mocked_tools[1].assert_called_once()
 
 
@@ -251,7 +274,7 @@ def test_mixed_answer_preserves_computed_values(citation_paper, mocked_tools):
     ]), message(content=payload))
     answer = copilot.ask_material_question("Mixed question", client=client)
     assert citation_paper["excerpt"] in answer
-    assert '"band_gap": 2.06' in answer
+    assert "band gap 2.06 eV" in answer
     assert "not necessarily experimental" in answer
 
 
@@ -292,7 +315,7 @@ def test_failed_retry_retains_computed_properties(citation_paper, mocked_tools):
     ]), message(content='bad'), message(content='bad again'))
     diagnostics = []
     answer = copilot.ask_material_question('Mixed?', client=client, evidence_trace=diagnostics)
-    assert '"band_gap": 2.06' in answer
+    assert "band gap 2.06 eV" in answer
     assert 'No unverified scientific explanation' in answer
     assert len(history) == 3
     assert [d['reason'] for d in diagnostics] == ['malformed_evidence_json'] * 2
