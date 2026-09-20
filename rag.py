@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import sys
 import time
+from threading import Lock
 
 import chromadb
 from chromadb.errors import NotFoundError
@@ -20,6 +21,11 @@ DB_PATH = PROJECT_DIR / "chroma_db"
 MODEL = "voyage-4-lite"
 COLLECTION_NAME = "hea_abstracts_voyage_4_lite"
 BATCH_SIZE = 10
+_INDEX_LOCK = Lock()
+
+
+class MissingIndexError(RuntimeError):
+    """The expected local index has not been created yet."""
 
 
 def load_papers(path: Path) -> list[dict]:
@@ -87,7 +93,7 @@ def embed_texts(texts: list[str], input_type: str) -> list[list[float]]:
 def get_collection(create: bool = False):
     """Disable Chroma's default embedding model: vectors always come from Voyage."""
     if not create and not DB_PATH.exists():
-        raise RuntimeError("No local index found. Run: python rag.py index")
+        raise MissingIndexError("No local index found. Run: python rag.py index")
     client = chromadb.PersistentClient(path=str(DB_PATH))
     if create:
         collection = client.get_or_create_collection(
@@ -100,7 +106,7 @@ def get_collection(create: bool = False):
         try:
             collection = client.get_collection(COLLECTION_NAME, embedding_function=None)
         except NotFoundError as error:
-            raise RuntimeError("No HEA index found. Run: python rag.py index") from error
+            raise MissingIndexError("No HEA index found. Run: python rag.py index") from error
     if (collection.metadata or {}).get("embedding_model") != MODEL:
         raise RuntimeError("Index embedding model does not match the configured model.")
     return collection
@@ -137,13 +143,26 @@ def index_papers() -> int:
     return collection.count()
 
 
+def ensure_index():
+    """Initialize once when absent; serialize first searches across UI sessions."""
+    with _INDEX_LOCK:
+        try:
+            collection = get_collection()
+        except MissingIndexError:
+            collection = None
+        if collection is None or collection.count() == 0:
+            index_papers()
+            collection = get_collection()
+        return collection
+
+
 def search_papers(query: str, k: int = 4) -> list[dict]:
     """Return up to k abstracts; lower cosine distance means a closer match."""
     if not isinstance(query, str) or not query.strip():
         raise ValueError("Query must be a non-empty string.")
     if isinstance(k, bool) or not isinstance(k, int) or k < 1:
         raise ValueError("k must be a positive integer.")
-    collection = get_collection()
+    collection = ensure_index()
     count = collection.count()
     if count == 0:
         raise RuntimeError("The HEA index is empty. Run: python rag.py index")

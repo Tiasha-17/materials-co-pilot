@@ -98,12 +98,55 @@ def test_missing_credentials(corpus, monkeypatch):
     assert not rag.DB_PATH.exists()
 
 
-def test_missing_and_empty_index(corpus):
-    with pytest.raises(RuntimeError, match="No local index"):
+@pytest.mark.parametrize("state", ["missing_directory", "missing_collection", "empty_collection"])
+def test_search_initializes_index_once(corpus, state):
+    _, client = corpus
+    if state == "missing_collection":
+        rag.chromadb.PersistentClient(path=str(rag.DB_PATH))
+    elif state == "empty_collection":
+        rag.get_collection(create=True)
+    assert rag.search_papers("strength")[0]["title"] == "HEA yield strength"
+    assert rag.search_papers("strength")[0]["title"] == "HEA yield strength"
+    assert rag.get_collection().count() == 2
+    assert [call.kwargs["input_type"] for call in client.embed.call_args_list] == [
+        "document", "query", "query",
+    ]
+
+
+def test_existing_index_is_not_rebuilt(corpus):
+    _, client = corpus
+    rag.index_papers()
+    client.embed.reset_mock()
+    rag.search_papers("strength")
+    assert [call.kwargs["input_type"] for call in client.embed.call_args_list] == ["query"]
+
+
+def test_failed_initialization_can_retry(corpus, monkeypatch):
+    original = rag.index_papers
+    index = Mock(side_effect=RuntimeError("Embedding service unavailable"))
+    monkeypatch.setattr(rag, "index_papers", index)
+    with pytest.raises(RuntimeError, match="Embedding service unavailable"):
         rag.search_papers("strength")
-    rag.get_collection(create=True)
-    with pytest.raises(RuntimeError, match="empty"):
-        rag.search_papers("strength")
+    monkeypatch.setattr(rag, "index_papers", original)
+    assert rag.search_papers("strength")
+
+
+def test_concurrent_initialization_runs_once(corpus, monkeypatch):
+    from concurrent.futures import ThreadPoolExecutor
+    from threading import Barrier
+
+    index = Mock(wraps=rag.index_papers)
+    monkeypatch.setattr(rag, "index_papers", index)
+    ready = Barrier(2)
+
+    def initialize():
+        ready.wait(timeout=10)
+        return rag.ensure_index().count()
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        jobs = [executor.submit(initialize) for _ in range(2)]
+        assert [job.result(timeout=20) for job in jobs] == [2, 2]
+    index.assert_called_once()
 
 
 @pytest.mark.parametrize("query,k", [("", 4), (" ", 4), (None, 4), ("HEA", 0),
