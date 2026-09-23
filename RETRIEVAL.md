@@ -1,7 +1,8 @@
 # HEA abstract retrieval
 
-This milestone adds standalone literature retrieval. It does not change the
-Materials Project lookup or the Groq tool-calling code.
+Literature retrieval is available through the standalone CLI and as the
+`search_papers` tool in the Groq copilot. See the [project README](README.md) for
+the chat interface and deployment setup.
 
 ## Setup and use
 
@@ -44,8 +45,11 @@ Each result contains `arxiv_id`, `title`, `arxiv_url`, `authors`, `published`,
 decoded from Chroma metadata.
 The excerpt is the complete abstract, not full paper text. Lower distance means
 a closer vector match; it is not a calibrated confidence or relevance score.
-Results are limited to the number of indexed papers. Invalid queries, missing
-keys, and missing or empty indexes produce clear errors.
+Results are limited to the number of indexed papers. Invalid queries and missing
+keys produce clear errors. Before searching, a missing or empty expected collection
+is initialized from the JSON corpus using the existing indexing function. A lock
+prevents concurrent initialization within one process. Later searches reuse it;
+an incompatible existing collection raises an error rather than being silently replaced.
 
 Repeated indexing embeds the corpus again and updates records by arXiv ID,
 without adding duplicates. Papers removed from the JSON are removed from the
@@ -60,7 +64,7 @@ and API failure handling. They do not measure Voyage's semantic relevance.
 The `pytest.ini` configuration excludes the root-level scripts that make live
 Materials Project, Groq, and arXiv calls.
 
-## Verified milestone
+## Historical retrieval milestone
 
 Validated with Voyage AI SDK 0.5.0, ChromaDB 1.5.9, and pytest 9.1.1:
 

@@ -1,5 +1,28 @@
 # Materials-Informatics Copilot — Project Handoff
 
+## Current status — 23 September 2026
+
+The ingestion, retrieval, grounded multi-tool agent, evaluation, Streamlit UI,
+and Community Cloud deployment milestones are implemented. Start with
+[README.md](README.md) for current setup, architecture, limitations, and the live demo.
+The sections below preserve the original project plan and may describe older states;
+the ingestion milestone is no longer the next task.
+
+- Corpus: 40 HEA arXiv abstracts in `data/hea_papers.json`.
+- Missing/empty Chroma indexes initialize automatically before literature search.
+- Literature answers validate retrieved IDs and abstract quotations, retry once,
+  and build citations from metadata. Valid computed results survive literature abstention.
+- Stored 16-case evaluation: 16 tool-selection matches, 7/7 required citation checks,
+  zero execution errors. These checks do not establish scientific answer quality.
+- Latest verified offline suite after portfolio cleanup: 100 passing tests.
+- Live Cloud smoke tests succeeded for the TiO2 band gap and mixed Ni question.
+- Cloud secrets must be quoted, root-level TOML strings; `.env` is local-only.
+- Portfolio documentation, live screenshots, and safe exception-type logging are
+  included. Request user approval before future commits or pushes.
+
+Manage credentials privately in local `.env` and Cloud Secrets. Never copy their
+values into docs, logs, chat, tests, or Git.
+
 ## 1. Project purpose
 
 This is a portfolio project for AI Engineer / Applied AI / LLM Engineer roles.

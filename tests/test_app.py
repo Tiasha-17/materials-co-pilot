@@ -64,7 +64,7 @@ def test_error_is_safe_and_app_recovers(monkeypatch):
 
 
 @pytest.mark.parametrize("present", [True, False])
-def test_diagnostics_log_only_type_and_presence(monkeypatch, caplog, present):
+def test_diagnostics_log_only_exception_type(monkeypatch, caplog, present):
     keys = ("MP_API_KEY", "GROQ_API_KEY", "VOYAGE_API_KEY")
     secrets = ["private-mp-value", "private-groq-value", "private-voyage-value"]
     for key, value in zip(keys, secrets):
@@ -87,15 +87,13 @@ def test_diagnostics_log_only_type_and_presence(monkeypatch, caplog, present):
     assert len(records) == 1
     record = records[0]
     assert record.getMessage() == (
-        "exception_module=builtins exception_class=RuntimeError "
-        f"MP_API_KEY_present={present} GROQ_API_KEY_present={present} "
-        f"VOYAGE_API_KEY_present={present}"
+        "exception_module=builtins exception_class=RuntimeError"
     )
     assert record.exc_info is None
     assert record.exc_text is None
     assert record.stack_info is None
     assert all(isinstance(value, (str, bool)) for value in record.args)
-    for forbidden in secrets + ["Authorization", "password", "request-body", "private user question"]:
+    for forbidden in list(keys) + secrets + ["Authorization", "password", "request-body", "private user question"]:
         assert forbidden not in caplog.text
         assert forbidden not in str(record.args)
         assert forbidden not in str(reply)

@@ -1,7 +1,6 @@
 """Local chat interface for the existing Materials-Informatics Copilot."""
 
 import logging
-import os
 
 import streamlit as st
 
@@ -24,15 +23,11 @@ def get_reply(question: str) -> dict:
         ))
         return {"role": "assistant", "content": answer, "tools": labels, "error": False}
     except Exception as error:
-        # Temporary Cloud diagnostics: never include the exception object or traceback.
+        # Keep failures diagnosable without logging credentials or request details.
         logging.getLogger(__name__).error(
-            "exception_module=%s exception_class=%s "
-            "MP_API_KEY_present=%s GROQ_API_KEY_present=%s VOYAGE_API_KEY_present=%s",
+            "exception_module=%s exception_class=%s",
             type(error).__module__,
             type(error).__name__,
-            "MP_API_KEY" in os.environ,
-            "GROQ_API_KEY" in os.environ,
-            "VOYAGE_API_KEY" in os.environ,
         )
         # Do not render exception text: provider errors can contain request details.
         return {
